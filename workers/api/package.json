@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "build:web": "bun --cwd ../../apps/web run build",
-    "deploy": "bun run build:web && wrangler deploy"
-  },
+  "dev": "wrangler dev",
+  "build:web": "cd ../../apps/web && bun run build",
+  "deploy": "bun run build:web && wrangler deploy"
+},
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260106.0",
     "typescript": "^5.8.3",
