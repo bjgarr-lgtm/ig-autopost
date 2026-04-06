@@ -1,0 +1,15 @@
+{
+  "name": "ig-autopost",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web",
+    "workers/api"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "build:web": "npm --workspace apps/web run build",
+    "dev:api": "npm --workspace workers/api run dev",
+    "deploy:api": "npm --workspace workers/api run deploy"
+  }
+}
