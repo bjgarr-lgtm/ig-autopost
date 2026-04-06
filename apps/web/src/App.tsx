@@ -5,7 +5,7 @@ import type { Account, DashboardData, PublishLog, ScheduledPost } from './types'
 type Toast = { kind: 'error' | 'success'; message: string } | null
 
 const emptyDashboard: DashboardData = {
-  session: { authenticated: false, setupRequired: false },
+  session: { authenticated: false, setupRequired: true },
   accounts: [],
   posts: [],
   logs: [],
@@ -30,7 +30,7 @@ export function App() {
 
   useEffect(() => {
     void load()
-    const timer = window.setInterval(() => void load(), 30000)
+    const timer = window.setInterval(() => void load(), 300000)
     return () => window.clearInterval(timer)
   }, [])
 

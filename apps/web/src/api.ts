@@ -1,6 +1,6 @@
 import type { Account, DashboardData, PublishLog, ScheduledPost, SessionStatus } from './types'
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8787').replace(/\/$/, '')
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || window.location.origin).replace(/\/$/, '')
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, {
