@@ -5,7 +5,7 @@ import type { Account, DashboardData, PublishLog, ScheduledPost } from './types'
 type Toast = { kind: 'error' | 'success'; message: string } | null
 
 const emptyDashboard: DashboardData = {
-  session: { authenticated: false, setupRequired: true },
+  session: { authenticated: false, setupRequired: false },
   accounts: [],
   posts: [],
   logs: [],
