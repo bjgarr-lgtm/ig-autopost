@@ -315,14 +315,41 @@ async function maybeDismissInstagramNoise(page) {
 }
 
 async function openComposer(page) {
-  const selectors = [
-    'svg[aria-label="New post"]',
-    'svg[aria-label="Create"]',
-    'a[href="/create/select/"]',
-    'div[role="menuitem"] svg[aria-label="New post"]',
+  const postMenuSelectors = [
+    'div[role="menuitem"]:has-text("Post")',
+    'div[role="button"]:has-text("Post")',
+    'a:has-text("Post")'
   ];
 
-  for (const selector of selectors) {
+  const clickPostMenuItem = async () => {
+    for (const selector of postMenuSelectors) {
+      const locator = page.locator(selector);
+      if (await locator.count()) {
+        try {
+          await locator.first().click({ timeout: 1500 });
+          return true;
+        } catch {}
+      }
+    }
+
+    const postText = page.getByText("Post", { exact: true });
+    if (await postText.count()) {
+      try {
+        await postText.first().click({ timeout: 1500 });
+        return true;
+      } catch {}
+    }
+
+    return false;
+  };
+
+  const directSelectors = [
+    'a[href="/create/select/"]',
+    'svg[aria-label="New post"]',
+    'div[role="menuitem"] svg[aria-label="New post"]'
+  ];
+
+  for (const selector of directSelectors) {
     const locator = page.locator(selector);
     if (await locator.count()) {
       try {
@@ -332,18 +359,37 @@ async function openComposer(page) {
     }
   }
 
-  const textOptions = ["Create", "New post"];
+  const createTriggers = [
+    'svg[aria-label="Create"]',
+    'button:has-text("Create")',
+    'div[role="button"]:has-text("Create")'
+  ];
+
+  for (const selector of createTriggers) {
+    const locator = page.locator(selector);
+    if (await locator.count()) {
+      try {
+        await locator.first().click({ timeout: 1500 });
+        await page.waitForTimeout(500);
+        if (await clickPostMenuItem()) return true;
+      } catch {}
+    }
+  }
+
+  const textOptions = ["New post", "Create"];
   for (const txt of textOptions) {
     const locator = page.getByText(txt, { exact: true });
     if (await locator.count()) {
       try {
         await locator.first().click({ timeout: 1500 });
-        return true;
+        if (txt === "New post") return true;
+        await page.waitForTimeout(500);
+        if (await clickPostMenuItem()) return true;
       } catch {}
     }
   }
 
-  return false;
+  return await clickPostMenuItem();
 }
 
 async function clickNext(page) {

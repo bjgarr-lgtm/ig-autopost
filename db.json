@@ -1,9 +1,193 @@
 {
   "profiles": [
     {
-      "id": "zzj0khgpex"
+      "id": "uruigavjab",
+      "name": "Account 1",
+      "createdAt": 1775530888730,
+      "pending": false,
+      "connectedAt": 1775530922218
     }
   ],
-  "posts": [],
-  "targets": []
+  "posts": [
+    {
+      "id": "e1r02y8s4i",
+      "caption": "line up for may day 2026",
+      "imagePath": "uploads\\b40e2e9e9ed2600b8b8a5e2607248de0",
+      "imageUrl": "/uploads/b40e2e9e9ed2600b8b8a5e2607248de0",
+      "scheduledAt": 1775530980000,
+      "status": "partial",
+      "createdAt": 1775530947220,
+      "lastRunAt": 1775531064054
+    }
+  ],
+  "targets": [
+    {
+      "id": "xx7ik1g03d",
+      "postId": "e1r02y8s4i",
+      "profileId": "uruigavjab",
+      "status": "failed",
+      "error": "page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"https://www.instagram.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "updatedAt": 1775531067637,
+      "attempts": 5
+    }
+  ],
+  "logs": [
+    {
+      "id": "trsysd144b",
+      "ts": 1775531064065,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "profileId": "uruigavjab",
+        "profileName": "Account 1"
+      }
+    },
+    {
+      "id": "b49x3pjtz3",
+      "ts": 1775531064058,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "cfggliaioz",
+      "ts": 1775531049051,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "profileId": "uruigavjab",
+        "profileName": "Account 1"
+      }
+    },
+    {
+      "id": "jrmlu3smj5",
+      "ts": 1775531049045,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "tq6f197lmy",
+      "ts": 1775531034051,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "profileId": "uruigavjab",
+        "profileName": "Account 1"
+      }
+    },
+    {
+      "id": "5mctl27yon",
+      "ts": 1775531034044,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "piszyaa3kh",
+      "ts": 1775531004026,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "profileId": "uruigavjab",
+        "profileName": "Account 1"
+      }
+    },
+    {
+      "id": "zdrkiw1lcd",
+      "ts": 1775531004020,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "4hhu20hb76",
+      "ts": 1775530989020,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "profileId": "uruigavjab",
+        "profileName": "Account 1"
+      }
+    },
+    {
+      "id": "yygvk522xf",
+      "ts": 1775530989014,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "2dcsv9avog",
+      "ts": 1775530947223,
+      "level": "info",
+      "message": "Scheduled post",
+      "extra": {
+        "postId": "e1r02y8s4i",
+        "profileCount": 1
+      }
+    },
+    {
+      "id": "ygd4lrer45",
+      "ts": 1775530947205,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\b40e2e9e9ed2600b8b8a5e2607248de0",
+        "original": "Screenshot 2026-04-06 103513.png"
+      }
+    },
+    {
+      "id": "ixyxyqwoyz",
+      "ts": 1775530922221,
+      "level": "info",
+      "message": "Instagram account connected",
+      "extra": {
+        "profileId": "uruigavjab"
+      }
+    },
+    {
+      "id": "ubdpq0nquk",
+      "ts": 1775530893968,
+      "level": "info",
+      "message": "Opened login browser for new account",
+      "extra": {
+        "profileId": "uruigavjab"
+      }
+    },
+    {
+      "id": "2w9c57aa4e",
+      "ts": 1775530868926,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000"
+      }
+    }
+  ]
 }
