@@ -15,6 +15,7 @@
       </div>
       <div class="topbar-actions">
         <button class="button" id="refreshBtn">Refresh</button>
+        <button class="button" id="importOpenBtn">Import schedule</button>
         <button class="button button-primary" id="addAccountBtn">Add account</button>
       </div>
     </header>
@@ -70,19 +71,15 @@
     </section>
 
     <section class="card">
-      <div class="section-head">
-        <h2>Scheduled posts</h2>
-        <p>Phase 2: pause, edit, bulk reschedule, and cleaner control over the queue.</p>
-      </div>
-      <div class="bulk-bar">
-        <div id="selectedCount" class="bulk-count">0 posts selected</div>
-        <div class="bulk-actions">
-          <label class="bulk-label">
-            <span>Shift selected by minutes</span>
-            <input type="number" id="bulkShiftInput" value="15" step="5" />
-          </label>
-          <button class="button" id="bulkShiftBtn" type="button">Apply shift</button>
-          <button class="button ghost" id="clearSelectionBtn" type="button">Clear selection</button>
+      <div class="section-head schedule-head">
+        <div>
+          <h2>Scheduled posts</h2>
+          <p>Pause, edit, retry, post now, bulk shift, and import a whole campaign once.</p>
+        </div>
+        <div class="topbar-actions">
+          <span id="selectedCount" class="selected-count">No posts selected</span>
+          <button class="button ghost" id="clearSelectionBtn" disabled>Clear selection</button>
+          <button class="button" id="bulkRescheduleBtn" disabled>Bulk reschedule</button>
         </div>
       </div>
       <div id="postsEmpty" class="empty hidden">No posts yet.</div>
@@ -90,35 +87,70 @@
     </section>
   </div>
 
+  <div id="toast" class="toast hidden"></div>
+
   <div id="editModal" class="modal hidden">
     <div class="modal-card">
-      <div class="section-head modal-head">
-        <h2>Edit scheduled post</h2>
-        <p>Same media, new timing and targets.</p>
+      <div class="section-head">
+        <div>
+          <h2>Edit scheduled post</h2>
+          <p id="editPostId" class="muted"></p>
+        </div>
+        <button class="button ghost" data-close-modal="editModal">Close</button>
       </div>
-      <form id="editForm" class="compose">
-        <input type="hidden" id="editPostId" />
-        <label class="field">
-          <span>Caption</span>
-          <textarea id="editCaption" rows="6"></textarea>
-        </label>
-        <label class="field">
-          <span>Schedule time</span>
-          <input type="datetime-local" id="editTime" required />
-        </label>
-        <div class="field">
-          <span>Post to accounts</span>
-          <div id="editAccountWrap" class="checkbox-wrap"></div>
-        </div>
-        <div class="actions">
-          <button class="button ghost" id="editCancelBtn" type="button">Cancel</button>
-          <button class="button button-primary" type="submit">Save changes</button>
-        </div>
-      </form>
+      <label class="field">
+        <span>Caption</span>
+        <textarea id="editCaptionInput" rows="6"></textarea>
+      </label>
+      <label class="field">
+        <span>Schedule time</span>
+        <input type="datetime-local" id="editTimeInput" />
+      </label>
+      <div class="field">
+        <span>Accounts</span>
+        <div id="editAccountsWrap" class="checkbox-wrap"></div>
+      </div>
+      <div class="actions">
+        <button class="button button-primary" id="editSaveBtn">Save changes</button>
+      </div>
     </div>
   </div>
 
-  <div id="toast" class="toast hidden"></div>
+  <div id="importModal" class="modal hidden">
+    <div class="modal-card modal-card-wide">
+      <div class="section-head">
+        <div>
+          <h2>Import campaign schedule</h2>
+          <p>CSV headers: <code>scheduledAt,caption,imageFile,accounts</code>. Accounts can use names or ids separated by <code>|</code>.</p>
+        </div>
+        <button class="button ghost" data-close-modal="importModal">Close</button>
+      </div>
+      <div class="import-grid">
+        <label class="field">
+          <span>Paste CSV</span>
+          <textarea id="importCsvText" rows="12" placeholder='scheduledAt,caption,imageFile,accounts&#10;2026-05-01 09:00,"caption text",flyer1.png,May Day Main|Signal Boost'></textarea>
+        </label>
+        <div class="import-side">
+          <label class="field">
+            <span>Or choose CSV file</span>
+            <input type="file" id="importCsvFile" accept=".csv,text/csv" />
+          </label>
+          <label class="field">
+            <span>Choose all import images</span>
+            <input type="file" id="importImageFiles" multiple accept="image/*" />
+          </label>
+          <div class="field">
+            <span>Default accounts if a row leaves accounts blank</span>
+            <div id="importDefaultAccounts" class="checkbox-wrap"></div>
+          </div>
+          <div id="importSummary" class="import-summary">No rows parsed yet.</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="button button-primary" id="importRunBtn">Import schedule now</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
