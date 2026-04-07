@@ -1,8 +1,14 @@
-node_modules
-dist
-.DS_Store
-.env
-.env.*
-.wrangler
-coverage
+# dependencies
+node_modules/
+
+# runtime data
+db.json
+uploads/
+profiles/
+
+# logs
 *.log
+
+# OS
+.DS_Store
+Thumbs.db

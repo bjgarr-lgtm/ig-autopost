@@ -25,7 +25,6 @@ function saveDB(data) {
 }
 
 const upload = multer({ dest: "uploads/" });
-
 const id = () => Math.random().toString(36).slice(2);
 
 app.post("/api/profile", async (req, res) => {
@@ -43,7 +42,7 @@ app.post("/api/profile", async (req, res) => {
 
   browser.on("close", () => {
     const db = loadDB();
-    db.profiles.push({ id: profileId });
+    db.profiles.push({ id: profileId, name: `Account ${db.profiles.length + 1}` });
     saveDB(db);
     console.log("Saved profile:", profileId);
   });
@@ -52,8 +51,7 @@ app.post("/api/profile", async (req, res) => {
 });
 
 app.get("/api/profiles", (req, res) => {
-  const db = loadDB();
-  res.json(db.profiles);
+  res.json(loadDB().profiles);
 });
 
 app.post("/api/upload", upload.single("file"), (req, res) => {
@@ -62,7 +60,6 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 app.post("/api/post", (req, res) => {
   const { caption, image, time, profiles } = req.body;
-
   const db = loadDB();
   const postId = id();
 
@@ -84,13 +81,11 @@ app.post("/api/post", (req, res) => {
   });
 
   saveDB(db);
-
   res.json({ ok: true });
 });
 
 app.get("/api/posts", (req, res) => {
-  const db = loadDB();
-  res.json(db);
+  res.json(loadDB());
 });
 
 async function postToIG(profileId, image, caption) {
@@ -102,13 +97,15 @@ async function postToIG(profileId, image, caption) {
 
   const page = await browser.newPage();
 
-  await page.goto("https://www.instagram.com/");
-  await page.waitForTimeout(5000);
-
   try {
+    await page.goto("https://www.instagram.com/");
+    await page.waitForTimeout(5000);
+
+    console.log("Opening new post UI...");
     await page.locator('svg[aria-label="New post"]').click();
     await page.waitForTimeout(2000);
 
+    console.log("Uploading file...");
     await page.setInputFiles('input[type="file"]', image);
     await page.waitForTimeout(3000);
 
@@ -117,16 +114,17 @@ async function postToIG(profileId, image, caption) {
     await page.getByText("Next").click();
 
     await page.waitForTimeout(2000);
-
     await page.locator("textarea").fill(caption);
+
+    console.log("Sharing post...");
     await page.getByText("Share").click();
 
     await page.waitForTimeout(5000);
     await browser.close();
 
     return { ok: true };
-
   } catch (e) {
+    console.error("POST ERROR:", e.message);
     await browser.close();
     return { ok: false, error: e.message };
   }
@@ -139,11 +137,15 @@ setInterval(async () => {
   for (const post of db.posts) {
     if (post.status !== "scheduled" || post.scheduled_at > now) continue;
 
+    console.log("Running scheduled post:", post.id);
+
     const targets = db.targets.filter(t => t.post_id === post.id && t.status === "pending");
 
     let allDone = true;
 
     for (const t of targets) {
+      console.log("Posting to:", t.profile_id);
+
       const result = await postToIG(t.profile_id, post.image_path, post.caption);
 
       if (result.ok) {
@@ -159,7 +161,6 @@ setInterval(async () => {
   }
 
   saveDB(db);
-
 }, 30000);
 
 app.listen(3000, () => {
