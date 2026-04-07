@@ -11,7 +11,7 @@
     <header class="topbar">
       <div>
         <h1>IG Autopost</h1>
-        <p class="sub">Local scheduler. Multi account. No Meta developer circus. Phase 1 adds startup catch-up plus pause and resume.</p>
+        <p class="sub">Local scheduler. Multi account. No Meta developer circus.</p>
       </div>
       <div class="topbar-actions">
         <button class="button" id="refreshBtn">Refresh</button>
@@ -72,11 +72,50 @@
     <section class="card">
       <div class="section-head">
         <h2>Scheduled posts</h2>
-        <p>Rendered cards, per account status, retry buttons, and post now.</p>
+        <p>Phase 2: pause, edit, bulk reschedule, and cleaner control over the queue.</p>
+      </div>
+      <div class="bulk-bar">
+        <div id="selectedCount" class="bulk-count">0 posts selected</div>
+        <div class="bulk-actions">
+          <label class="bulk-label">
+            <span>Shift selected by minutes</span>
+            <input type="number" id="bulkShiftInput" value="15" step="5" />
+          </label>
+          <button class="button" id="bulkShiftBtn" type="button">Apply shift</button>
+          <button class="button ghost" id="clearSelectionBtn" type="button">Clear selection</button>
+        </div>
       </div>
       <div id="postsEmpty" class="empty hidden">No posts yet.</div>
       <div id="postsList" class="posts-grid"></div>
     </section>
+  </div>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="section-head modal-head">
+        <h2>Edit scheduled post</h2>
+        <p>Same media, new timing and targets.</p>
+      </div>
+      <form id="editForm" class="compose">
+        <input type="hidden" id="editPostId" />
+        <label class="field">
+          <span>Caption</span>
+          <textarea id="editCaption" rows="6"></textarea>
+        </label>
+        <label class="field">
+          <span>Schedule time</span>
+          <input type="datetime-local" id="editTime" required />
+        </label>
+        <div class="field">
+          <span>Post to accounts</span>
+          <div id="editAccountWrap" class="checkbox-wrap"></div>
+        </div>
+        <div class="actions">
+          <button class="button ghost" id="editCancelBtn" type="button">Cancel</button>
+          <button class="button button-primary" type="submit">Save changes</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <div id="toast" class="toast hidden"></div>

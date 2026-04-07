@@ -16,7 +16,6 @@ const APP_USER = String(process.env.APP_USER || "").trim();
 const APP_PASS = String(process.env.APP_PASS || "");
 const TICK_MS = 15000;
 const PROFILE_LOGIN_POLL_MS = 2000;
-const STARTUP_CATCHUP_DELAY_MS = 1500;
 
 fs.mkdirSync(DATA_DIR, { recursive: true });
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });
@@ -67,7 +66,17 @@ let lastSchedulerTickAt = null;
 let lastSchedulerError = "";
 
 function createDefaultDb() {
-  return { profiles: [], posts: [], targets: [], logs: [], settings: { catchUpOnStartup: true } };
+  return { profiles: [], posts: [], targets: [], logs: [] };
+}
+
+function normalizePost(post) {
+  const status = String(post?.status || "scheduled");
+  return {
+    ...post,
+    status: status === "paused" ? "paused" : status,
+    createdAt: Number(post?.createdAt || Date.now()),
+    lastRunAt: post?.lastRunAt || null,
+  };
 }
 
 function loadDB() {
@@ -78,12 +87,9 @@ function loadDB() {
     const parsed = JSON.parse(fs.readFileSync(DB_FILE, "utf8"));
     return {
       profiles: parsed.profiles || [],
-      posts: parsed.posts || [],
+      posts: (parsed.posts || []).map(normalizePost),
       targets: parsed.targets || [],
       logs: parsed.logs || [],
-      settings: {
-        catchUpOnStartup: parsed.settings?.catchUpOnStartup !== false,
-      },
     };
   } catch {
     return createDefaultDb();
@@ -99,7 +105,7 @@ function id() {
 }
 
 function log(level, message, extra = {}) {
-  const db = normalizeDb(loadDB());
+  const db = loadDB();
   db.logs.unshift({
     id: id(),
     ts: Date.now(),
@@ -121,66 +127,6 @@ function normalizeProfile(profile, index = 0) {
   };
 }
 
-function normalizeTarget(target) {
-  return {
-    ...target,
-    status: String(target?.status || "pending"),
-    error: String(target?.error || ""),
-    attempts: Number(target?.attempts || 0),
-    updatedAt: Number(target?.updatedAt || Date.now()),
-  };
-}
-
-function normalizePost(post) {
-  const status = String(post?.status || "scheduled");
-  const normalizedStatus = status === "missed" ? "scheduled" : status;
-  return {
-    ...post,
-    caption: String(post?.caption || ""),
-    status: normalizedStatus,
-    createdAt: Number(post?.createdAt || Date.now()),
-    lastRunAt: Number(post?.lastRunAt || 0) || null,
-    scheduledAt: Number(post?.scheduledAt || 0),
-    pausedAt: Number(post?.pausedAt || 0) || null,
-  };
-}
-
-function normalizeDb(db) {
-  db.profiles = (db.profiles || []).map((profile, index) => normalizeProfile(profile, index));
-  db.posts = (db.posts || []).map(normalizePost);
-  db.targets = (db.targets || []).map(normalizeTarget);
-  db.logs = db.logs || [];
-  db.settings = {
-    catchUpOnStartup: db.settings?.catchUpOnStartup !== false,
-  };
-  return db;
-}
-
-function enrichState(db) {
-  const now = Date.now();
-  const posts = db.posts.map(post => {
-    const targets = db.targets.filter(target => target.postId === post.id);
-    const counts = {
-      pending: targets.filter(t => t.status === "pending").length,
-      running: targets.filter(t => t.status === "running").length,
-      done: targets.filter(t => t.status === "done").length,
-      failed: targets.filter(t => t.status === "failed").length,
-      total: targets.length,
-    };
-    const overdue = (post.status === "scheduled" || post.status === "partial") && Number(post.scheduledAt) <= now;
-    return {
-      ...post,
-      overdue,
-      counts,
-    };
-  });
-
-  return {
-    ...db,
-    posts,
-  };
-}
-
 function sendApiError(res, status, error) {
   const message = error && error.message ? error.message : String(error || "Unknown error");
   res.status(status).json({ error: message });
@@ -188,6 +134,29 @@ function sendApiError(res, status, error) {
 
 function findProfile(db, profileId) {
   return db.profiles.find(x => x.id === profileId);
+}
+
+function findPost(db, postId) {
+  return db.posts.find(x => x.id === postId);
+}
+
+function getPostTargets(db, postId) {
+  return db.targets.filter(x => x.postId === postId);
+}
+
+function ensureProfileIds(db, profileIds) {
+  if (!Array.isArray(profileIds) || !profileIds.length) {
+    throw new Error("Choose at least one account");
+  }
+  const readyProfiles = new Set(
+    db.profiles.filter(profile => !profile.pending).map(profile => profile.id)
+  );
+  const unique = [...new Set(profileIds.map(value => String(value || "").trim()).filter(Boolean))];
+  if (!unique.length) throw new Error("Choose at least one account");
+  for (const profileId of unique) {
+    if (!readyProfiles.has(profileId)) throw new Error(`Account is not ready: ${profileId}`);
+  }
+  return unique;
 }
 
 function cleanupProfileSetup(profileId) {
@@ -278,9 +247,11 @@ app.get("/api/health", (req, res) => {
 });
 
 app.get("/api/state", (req, res) => {
-  const db = normalizeDb(loadDB());
+  const db = loadDB();
+  db.profiles = db.profiles.map((profile, index) => normalizeProfile(profile, index));
+  db.posts = db.posts.map(normalizePost);
   saveDB(db);
-  res.json(enrichState(db));
+  res.json(db);
 });
 
 app.post("/api/profile/start", async (req, res) => {
@@ -358,13 +329,19 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.post("/api/post", (req, res) => {
   const { caption, imagePath, imageUrl, scheduledAt, profileIds } = req.body || {};
   if (!imagePath) return res.status(400).json({ error: "imagePath required" });
-  if (!Array.isArray(profileIds) || !profileIds.length) return res.status(400).json({ error: "Choose at least one account" });
   const time = Number(scheduledAt);
   if (!Number.isFinite(time)) return res.status(400).json({ error: "Invalid scheduledAt" });
 
   const db = loadDB();
+  let readyProfileIds;
+  try {
+    readyProfileIds = ensureProfileIds(db, profileIds);
+  } catch (error) {
+    return sendApiError(res, 400, error);
+  }
+
   const postId = id();
-  db.posts.unshift({
+  db.posts.unshift(normalizePost({
     id: postId,
     caption: String(caption || ""),
     imagePath,
@@ -373,9 +350,9 @@ app.post("/api/post", (req, res) => {
     status: "scheduled",
     createdAt: Date.now(),
     lastRunAt: null
-  });
+  }));
 
-  for (const profileId of profileIds) {
+  for (const profileId of readyProfileIds) {
     db.targets.push({
       id: id(),
       postId,
@@ -388,7 +365,7 @@ app.post("/api/post", (req, res) => {
   }
 
   saveDB(db);
-  log("info", "Scheduled post", { postId, profileCount: profileIds.length });
+  log("info", "Scheduled post", { postId, profileCount: readyProfileIds.length });
   res.json({ ok: true, postId });
 });
 
@@ -398,28 +375,92 @@ app.post("/api/post/:id/post-now", async (req, res) => {
   res.json(result);
 });
 
-app.post("/api/post/:id/pause", (req, res) => {
+app.post("/api/post/:id/toggle-pause", (req, res) => {
   const postId = req.params.id;
-  const db = normalizeDb(loadDB());
-  const post = db.posts.find(p => p.id === postId);
+  const db = loadDB();
+  const post = findPost(db, postId);
   if (!post) return res.status(404).json({ error: "Post not found" });
-  if (post.status === "running") return res.status(400).json({ error: "Cannot pause a post while it is running" });
-  if (post.status === "done") return res.status(400).json({ error: "Post is already done" });
+  if (post.status === "done") return res.status(400).json({ error: "Posted items cannot be paused" });
+  if (post.status === "running") return res.status(400).json({ error: "This post is running right now" });
 
-  const shouldPause = post.status !== "paused";
-  post.status = shouldPause ? "paused" : "scheduled";
-  post.pausedAt = shouldPause ? Date.now() : null;
+  const nextStatus = post.status === "paused" ? "scheduled" : "paused";
+  post.status = nextStatus;
+  saveDB(db);
+  log("info", nextStatus === "paused" ? "Paused post" : "Resumed post", { postId });
+  res.json({ ok: true, status: nextStatus });
+});
 
-  for (const target of db.targets.filter(t => t.postId === postId)) {
-    if (target.status === "running" || target.status === "done") continue;
-    target.status = "pending";
-    target.error = "";
-    target.updatedAt = Date.now();
+app.post("/api/post/:id/update", (req, res) => {
+  const postId = req.params.id;
+  const { caption, scheduledAt, profileIds } = req.body || {};
+  const db = loadDB();
+  const post = findPost(db, postId);
+  if (!post) return res.status(404).json({ error: "Post not found" });
+  if (post.status === "running") return res.status(400).json({ error: "This post is running right now" });
+
+  const time = Number(scheduledAt);
+  if (!Number.isFinite(time)) return res.status(400).json({ error: "Invalid scheduledAt" });
+
+  let readyProfileIds;
+  try {
+    readyProfileIds = ensureProfileIds(db, profileIds);
+  } catch (error) {
+    return sendApiError(res, 400, error);
+  }
+
+  post.caption = String(caption || "");
+  post.scheduledAt = time;
+  if (post.status !== "paused" && post.status !== "done") {
+    post.status = "scheduled";
+  }
+
+  const existingTargets = getPostTargets(db, postId);
+  const targetByProfileId = new Map(existingTargets.map(target => [target.profileId, target]));
+  db.targets = db.targets.filter(target => target.postId !== postId);
+
+  for (const profileId of readyProfileIds) {
+    const existing = targetByProfileId.get(profileId);
+    db.targets.push(existing ? {
+      ...existing,
+      profileId,
+      postId,
+      updatedAt: Date.now(),
+    } : {
+      id: id(),
+      postId,
+      profileId,
+      status: "pending",
+      error: "",
+      updatedAt: Date.now(),
+      attempts: 0,
+    });
   }
 
   saveDB(db);
-  log("info", shouldPause ? "Paused post" : "Resumed post", { postId });
-  res.json({ ok: true, status: post.status });
+  log("info", "Updated scheduled post", { postId, profileCount: readyProfileIds.length, scheduledAt: time });
+  res.json({ ok: true });
+});
+
+app.post("/api/posts/bulk-reschedule", (req, res) => {
+  const { postIds, minutes } = req.body || {};
+  const minuteShift = Number(minutes);
+  if (!Array.isArray(postIds) || !postIds.length) return res.status(400).json({ error: "Choose at least one post" });
+  if (!Number.isFinite(minuteShift) || minuteShift === 0) return res.status(400).json({ error: "Enter a non-zero minute shift" });
+
+  const db = loadDB();
+  let changed = 0;
+  for (const rawPostId of postIds) {
+    const post = findPost(db, rawPostId);
+    if (!post) continue;
+    if (post.status === "running" || post.status === "done") continue;
+    post.scheduledAt = Number(post.scheduledAt || Date.now()) + minuteShift * 60000;
+    if (post.status !== "paused") post.status = "scheduled";
+    changed += 1;
+  }
+
+  saveDB(db);
+  log("info", "Bulk rescheduled posts", { changed, minuteShift, postCount: postIds.length });
+  res.json({ ok: true, changed });
 });
 
 app.post("/api/target/:id/retry", (req, res) => {
@@ -430,6 +471,10 @@ app.post("/api/target/:id/retry", (req, res) => {
   t.status = "pending";
   t.error = "";
   t.updatedAt = Date.now();
+  const post = findPost(db, t.postId);
+  if (post && post.status !== "paused" && post.status !== "running" && post.status !== "done") {
+    post.status = "scheduled";
+  }
   saveDB(db);
   log("info", "Reset target to pending", { targetId });
   res.json({ ok: true });
@@ -444,12 +489,26 @@ app.post("/api/post/:id/delete", (req, res) => {
   res.json({ ok: true });
 });
 
-async function clickFirst(page, labels) {
-  for (const label of labels) {
-    const locator = page.getByText(label, { exact: true });
-    if (await locator.count()) {
+async function clickVisibleByText(page, labels) {
+  const lowerLabels = labels.map(label => String(label || "").toLowerCase());
+  const selectors = [
+    'button',
+    '[role="button"]',
+    'a',
+    '[role="menuitem"]'
+  ];
+  for (const selector of selectors) {
+    const locator = page.locator(selector).filter({
+      hasText: new RegExp(`^(${labels.map(label => label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})$`, "i")
+    });
+    const count = await locator.count();
+    for (let index = 0; index < count; index += 1) {
+      const candidate = locator.nth(index);
       try {
-        await locator.first().click({ timeout: 1500 });
+        if (!(await candidate.isVisible())) continue;
+        const text = String((await candidate.innerText()).trim()).toLowerCase();
+        if (!lowerLabels.includes(text)) continue;
+        await candidate.click({ timeout: 2000 });
         return true;
       } catch {}
     }
@@ -458,64 +517,81 @@ async function clickFirst(page, labels) {
 }
 
 async function maybeDismissInstagramNoise(page) {
-  await clickFirst(page, ["Not Now", "Cancel"]);
+  await clickVisibleByText(page, ["Not Now", "Cancel"]);
   await page.waitForTimeout(500);
-  await clickFirst(page, ["Not Now", "Cancel"]);
+  await clickVisibleByText(page, ["Not Now", "Cancel"]);
+}
+
+async function waitForFileInput(page, timeoutMs = 8000) {
+  const startedAt = Date.now();
+  while (Date.now() - startedAt < timeoutMs) {
+    const fileInput = page.locator('input[type="file"]');
+    if (await fileInput.count()) {
+      try {
+        if (await fileInput.first().isVisible()) return fileInput.first();
+      } catch {
+        return fileInput.first();
+      }
+    }
+    await page.waitForTimeout(250);
+  }
+  return null;
 }
 
 async function openComposer(page) {
-  const selectors = [
+  await page.goto("https://www.instagram.com/create/select/", { waitUntil: "domcontentloaded", timeout: 60000 });
+  let fileInput = await waitForFileInput(page, 5000);
+  if (fileInput) return fileInput;
+
+  await page.goto("https://www.instagram.com/", { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.waitForTimeout(2500);
+  await maybeDismissInstagramNoise(page);
+
+  const iconSelectors = [
     'svg[aria-label="New post"]',
     'svg[aria-label="Create"]',
     'a[href="/create/select/"]',
     'div[role="menuitem"] svg[aria-label="New post"]',
   ];
 
-  for (const selector of selectors) {
+  for (const selector of iconSelectors) {
     const locator = page.locator(selector);
     if (await locator.count()) {
       try {
-        await locator.first().click({ timeout: 1500 });
-        return true;
+        await locator.first().click({ timeout: 2000 });
+        fileInput = await waitForFileInput(page, 3000);
+        if (fileInput) return fileInput;
       } catch {}
     }
   }
 
-  const textOptions = ["Create", "New post"];
-  for (const txt of textOptions) {
-    const locator = page.getByText(txt, { exact: true });
-    if (await locator.count()) {
-      try {
-        await locator.first().click({ timeout: 1500 });
-        return true;
-      } catch {}
-    }
-  }
-
-  return false;
+  await clickVisibleByText(page, ["Create", "New post"]);
+  await page.waitForTimeout(1000);
+  await clickVisibleByText(page, ["Post"]);
+  await page.waitForTimeout(1000);
+  fileInput = await waitForFileInput(page, 5000);
+  return fileInput;
 }
 
 async function clickNext(page) {
-  const candidates = ["Next", "Share"];
-  for (const txt of candidates) {
-    const locator = page.getByText(txt, { exact: true });
-    if (await locator.count()) {
-      try {
-        await locator.first().click({ timeout: 2000 });
-        return txt;
-      } catch {}
-    }
+  const labels = ["Next", "Share"];
+  for (const label of labels) {
+    const clicked = await clickVisibleByText(page, [label]);
+    if (clicked) return label;
   }
   return null;
 }
 
 async function setCaption(page, caption) {
-  const selectors = ["textarea", 'div[role="textbox"]', 'textarea[aria-label]'];
+  const selectors = ["textarea", 'div[role="textbox"]', 'textarea[aria-label]', '[contenteditable="true"]'];
   for (const selector of selectors) {
     const locator = page.locator(selector);
-    if (await locator.count()) {
+    const count = await locator.count();
+    for (let index = 0; index < count; index += 1) {
+      const field = locator.nth(index);
       try {
-        await locator.first().fill(caption);
+        if (!(await field.isVisible())) continue;
+        await field.fill(caption);
         return true;
       } catch {}
     }
@@ -530,36 +606,31 @@ async function postToInstagram(target, post, profile) {
     viewport: { width: 1440, height: 1000 }
   });
 
-  const page = await browser.newPage();
+  const page = browser.pages().length ? browser.pages()[0] : await browser.newPage();
   const screenshotBase = path.join(UPLOADS_DIR, `debug-${post.id}-${profile.id}-${Date.now()}`);
 
   try {
     await page.goto("https://www.instagram.com/", { waitUntil: "domcontentloaded", timeout: 60000 });
-    await page.waitForTimeout(4000);
+    await page.waitForTimeout(2500);
     await maybeDismissInstagramNoise(page);
 
-    const opened = await openComposer(page);
-    if (!opened) throw new Error("Could not find Instagram new post button");
-
-    await page.waitForTimeout(2000);
-
-    const fileInput = page.locator('input[type="file"]');
-    if (!await fileInput.count()) throw new Error("Could not find file input");
-    await fileInput.first().setInputFiles(storageAbsolutePath(post.imagePath));
+    const fileInput = await openComposer(page);
+    if (!fileInput) throw new Error(`Could not find file input at ${page.url()}`);
+    await fileInput.setInputFiles(storageAbsolutePath(post.imagePath));
     await page.waitForTimeout(3000);
 
     let step = await clickNext(page);
-    if (!step) throw new Error("Could not find first Next button");
+    if (!step) throw new Error(`Could not find first Next button at ${page.url()}`);
     await page.waitForTimeout(1500);
 
     step = await clickNext(page);
     await page.waitForTimeout(2000);
 
     const captionOk = await setCaption(page, post.caption || "");
-    if (!captionOk) throw new Error("Could not find caption field");
+    if (!captionOk) throw new Error(`Could not find caption field at ${page.url()}`);
 
-    const shareClicked = await clickFirst(page, ["Share"]);
-    if (!shareClicked) throw new Error("Could not find Share button");
+    const shareClicked = await clickVisibleByText(page, ["Share"]);
+    if (!shareClicked) throw new Error(`Could not find Share button at ${page.url()}`);
 
     await page.waitForTimeout(6000);
     await page.screenshot({ path: `${screenshotBase}-success.png`, fullPage: true });
@@ -576,10 +647,10 @@ async function postToInstagram(target, post, profile) {
 }
 
 async function processPost(postId, manual = false) {
-  const db = normalizeDb(loadDB());
-  const post = db.posts.find(p => p.id === postId);
+  const db = loadDB();
+  const post = findPost(db, postId);
   if (!post) return { ok: false, error: "Post not found" };
-  if (post.status === "paused") {
+  if (post.status === "paused" && !manual) {
     return { ok: false, error: "Post is paused" };
   }
   if (!manual && post.status !== "scheduled" && post.status !== "partial") {
@@ -599,7 +670,7 @@ async function processPost(postId, manual = false) {
   let failedCount = 0;
 
   for (const target of targets) {
-    const freshDb = normalizeDb(loadDB());
+    const freshDb = loadDB();
     const liveTarget = freshDb.targets.find(t => t.id === target.id);
     const profile = freshDb.profiles.find(p => p.id === target.profileId);
     const livePost = freshDb.posts.find(p => p.id === postId);
@@ -615,7 +686,7 @@ async function processPost(postId, manual = false) {
 
     const result = await postToInstagram(liveTarget, livePost, profile);
 
-    const postDb = normalizeDb(loadDB());
+    const postDb = loadDB();
     const finalTarget = postDb.targets.find(t => t.id === target.id);
     if (!finalTarget) continue;
 
@@ -639,7 +710,7 @@ async function processPost(postId, manual = false) {
     saveDB(postDb);
   }
 
-  const endDb = normalizeDb(loadDB());
+  const endDb = loadDB();
   const endPost = endDb.posts.find(p => p.id === postId);
   const remaining = endDb.targets.filter(t => t.postId === postId && (t.status === "pending" || t.status === "running")).length;
   if (endPost) {
@@ -660,7 +731,7 @@ async function schedulerTick() {
   schedulerBusy = true;
   lastSchedulerTickAt = Date.now();
   try {
-    const db = normalizeDb(loadDB());
+    const db = loadDB();
     const now = Date.now();
     const due = db.posts.filter(p => (p.status === "scheduled" || p.status === "partial") && Number(p.scheduledAt) <= now);
     for (const post of due) {
@@ -701,15 +772,9 @@ app.listen(PORT, HOST, () => {
     dataDir: DATA_DIR,
     authEnabled: basicAuthEnabled(),
   });
+  schedulerTick().catch(err => {
+    lastSchedulerError = err.message || String(err);
+    log("error", "Startup catch-up failed", { error: lastSchedulerError });
+  });
   console.log(`http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}`);
-
-  const startupDb = normalizeDb(loadDB());
-  if (startupDb.settings?.catchUpOnStartup !== false) {
-    setTimeout(() => {
-      schedulerTick().catch(err => {
-        lastSchedulerError = err.message || String(err);
-        log("error", "Startup catch-up failed", { error: lastSchedulerError });
-      });
-    }, STARTUP_CATCHUP_DELAY_MS);
-  }
 });
