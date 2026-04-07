@@ -15,7 +15,7 @@ const els = {
   toast: document.getElementById("toast"),
 };
 
-let state = { profiles: [], posts: [], targets: [] };
+let state = { profiles: [], posts: [], targets: [], settings: {} };
 let selectedImage = null;
 let lastApiFailure = "";
 
@@ -54,6 +54,30 @@ function showToast(message, kind = "info") {
 
 function fmtTime(ts) {
   return new Date(ts).toLocaleString();
+}
+
+function fmtRelative(ms) {
+  const abs = Math.abs(ms);
+  const minutes = Math.round(abs / 60000);
+  if (minutes < 60) return `${minutes}m`;
+  const hours = Math.round(minutes / 60);
+  if (hours < 48) return `${hours}h`;
+  const days = Math.round(hours / 24);
+  return `${days}d`;
+}
+
+function describeSchedule(post) {
+  const now = Date.now();
+  const delta = Number(post.scheduledAt) - now;
+  if (post.status === "paused") return "Paused";
+  if (delta > 0) return `Runs in ${fmtRelative(delta)}`;
+  if (post.status === "done") return "Posted";
+  if (post.status === "running") return "Posting now";
+  return `Overdue by ${fmtRelative(delta)}`;
+}
+
+function canPausePost(post) {
+  return post.status !== "running" && post.status !== "done";
 }
 
 function defaultDateTimeLocal() {
@@ -144,6 +168,19 @@ function renderPosts() {
       `;
     }).join("");
 
+    const pauseLabel = post.status === "paused" ? "Resume" : "Pause";
+    const pauseBtn = canPausePost(post)
+      ? `<button class="button ghost" data-action="toggle-pause" data-id="${post.id}">${pauseLabel}</button>`
+      : "";
+
+    const counts = post.counts || {};
+    const summaryBits = [
+      counts.done ? `${counts.done} done` : "",
+      counts.failed ? `${counts.failed} failed` : "",
+      counts.pending ? `${counts.pending} waiting` : "",
+      counts.running ? `${counts.running} running` : "",
+    ].filter(Boolean).join(" · ");
+
     const card = document.createElement("article");
     card.className = "post-card";
     card.innerHTML = `
@@ -152,13 +189,17 @@ function renderPosts() {
       </div>
       <div class="post-body">
         <div class="post-meta">
-          <span class="pill ${post.status}">${escapeHtml(post.status)}</span>
+          <span class="pill ${post.overdue && post.status !== "done" && post.status !== "paused" ? "warning" : post.status}">${escapeHtml(post.status)}</span>
+          ${post.overdue && post.status !== "done" && post.status !== "paused" ? '<span class="pill warning">overdue</span>' : ""}
           <span>${fmtTime(post.scheduledAt)}</span>
+          <span>${escapeHtml(describeSchedule(post))}</span>
         </div>
+        <div class="post-summary">${escapeHtml(summaryBits || `${targets.length} target${targets.length === 1 ? "" : "s"}`)}</div>
         <pre class="caption">${escapeHtml(post.caption || "")}</pre>
         <div class="post-actions">
-          <button class="button" data-action="post-now" data-id="${post.id}">Post now</button>
-          <button class="button ghost danger" data-action="delete-post" data-id="${post.id}">Delete</button>
+          <button class="button" data-action="post-now" data-id="${post.id}" ${post.status === "running" ? "disabled" : ""}>Post now</button>
+          ${pauseBtn}
+          <button class="button ghost danger" data-action="delete-post" data-id="${post.id}" ${post.status === "running" ? "disabled" : ""}>Delete</button>
         </div>
         <div class="targets-box">${statuses || "<div class='empty-mini'>No targets</div>"}</div>
       </div>
@@ -168,6 +209,7 @@ function renderPosts() {
 }
 
 function renderPreview() {
+
   els.previewCaption.textContent = els.captionInput.value || "Nothing yet.";
   if (selectedImage?.url) {
     els.previewMedia.innerHTML = `<img class="preview-img" src="${selectedImage.url}" alt="preview" />`;
@@ -245,6 +287,16 @@ async function deletePost(postId) {
   await refreshState(true);
 }
 
+async function togglePause(postId) {
+  const post = state.posts.find(item => item.id === postId);
+  if (!post) return;
+
+  const actionWord = post.status === "paused" ? "resume" : "pause";
+  await apiFetch(`/api/post/${postId}/pause`, { method: "POST" });
+  showToast(`Post ${actionWord}d.`, "success");
+  await refreshState(true);
+}
+
 async function schedulePost(event) {
   event.preventDefault();
 
@@ -316,6 +368,7 @@ document.body.addEventListener("click", async (event) => {
   if (action === "remove") return removeAccount(id);
   if (action === "retry") return retryTarget(id);
   if (action === "post-now") return postNow(id);
+  if (action === "toggle-pause") return togglePause(id);
   if (action === "delete-post") return deletePost(id);
 });
 

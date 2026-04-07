@@ -16,6 +16,7 @@ const APP_USER = String(process.env.APP_USER || "").trim();
 const APP_PASS = String(process.env.APP_PASS || "");
 const TICK_MS = 15000;
 const PROFILE_LOGIN_POLL_MS = 2000;
+const STARTUP_CATCHUP_DELAY_MS = 1500;
 
 fs.mkdirSync(DATA_DIR, { recursive: true });
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });
@@ -66,7 +67,7 @@ let lastSchedulerTickAt = null;
 let lastSchedulerError = "";
 
 function createDefaultDb() {
-  return { profiles: [], posts: [], targets: [], logs: [] };
+  return { profiles: [], posts: [], targets: [], logs: [], settings: { catchUpOnStartup: true } };
 }
 
 function loadDB() {
@@ -80,6 +81,9 @@ function loadDB() {
       posts: parsed.posts || [],
       targets: parsed.targets || [],
       logs: parsed.logs || [],
+      settings: {
+        catchUpOnStartup: parsed.settings?.catchUpOnStartup !== false,
+      },
     };
   } catch {
     return createDefaultDb();
@@ -95,7 +99,7 @@ function id() {
 }
 
 function log(level, message, extra = {}) {
-  const db = loadDB();
+  const db = normalizeDb(loadDB());
   db.logs.unshift({
     id: id(),
     ts: Date.now(),
@@ -114,6 +118,66 @@ function normalizeProfile(profile, index = 0) {
     name: String(profile?.name || `Account ${index + 1}`),
     pending: !!profile?.pending,
     connectedAt: profile?.connectedAt || null,
+  };
+}
+
+function normalizeTarget(target) {
+  return {
+    ...target,
+    status: String(target?.status || "pending"),
+    error: String(target?.error || ""),
+    attempts: Number(target?.attempts || 0),
+    updatedAt: Number(target?.updatedAt || Date.now()),
+  };
+}
+
+function normalizePost(post) {
+  const status = String(post?.status || "scheduled");
+  const normalizedStatus = status === "missed" ? "scheduled" : status;
+  return {
+    ...post,
+    caption: String(post?.caption || ""),
+    status: normalizedStatus,
+    createdAt: Number(post?.createdAt || Date.now()),
+    lastRunAt: Number(post?.lastRunAt || 0) || null,
+    scheduledAt: Number(post?.scheduledAt || 0),
+    pausedAt: Number(post?.pausedAt || 0) || null,
+  };
+}
+
+function normalizeDb(db) {
+  db.profiles = (db.profiles || []).map((profile, index) => normalizeProfile(profile, index));
+  db.posts = (db.posts || []).map(normalizePost);
+  db.targets = (db.targets || []).map(normalizeTarget);
+  db.logs = db.logs || [];
+  db.settings = {
+    catchUpOnStartup: db.settings?.catchUpOnStartup !== false,
+  };
+  return db;
+}
+
+function enrichState(db) {
+  const now = Date.now();
+  const posts = db.posts.map(post => {
+    const targets = db.targets.filter(target => target.postId === post.id);
+    const counts = {
+      pending: targets.filter(t => t.status === "pending").length,
+      running: targets.filter(t => t.status === "running").length,
+      done: targets.filter(t => t.status === "done").length,
+      failed: targets.filter(t => t.status === "failed").length,
+      total: targets.length,
+    };
+    const overdue = (post.status === "scheduled" || post.status === "partial") && Number(post.scheduledAt) <= now;
+    return {
+      ...post,
+      overdue,
+      counts,
+    };
+  });
+
+  return {
+    ...db,
+    posts,
   };
 }
 
@@ -214,10 +278,9 @@ app.get("/api/health", (req, res) => {
 });
 
 app.get("/api/state", (req, res) => {
-  const db = loadDB();
-  db.profiles = db.profiles.map((profile, index) => normalizeProfile(profile, index));
+  const db = normalizeDb(loadDB());
   saveDB(db);
-  res.json(db);
+  res.json(enrichState(db));
 });
 
 app.post("/api/profile/start", async (req, res) => {
@@ -333,6 +396,30 @@ app.post("/api/post/:id/post-now", async (req, res) => {
   const postId = req.params.id;
   const result = await processPost(postId, true);
   res.json(result);
+});
+
+app.post("/api/post/:id/pause", (req, res) => {
+  const postId = req.params.id;
+  const db = normalizeDb(loadDB());
+  const post = db.posts.find(p => p.id === postId);
+  if (!post) return res.status(404).json({ error: "Post not found" });
+  if (post.status === "running") return res.status(400).json({ error: "Cannot pause a post while it is running" });
+  if (post.status === "done") return res.status(400).json({ error: "Post is already done" });
+
+  const shouldPause = post.status !== "paused";
+  post.status = shouldPause ? "paused" : "scheduled";
+  post.pausedAt = shouldPause ? Date.now() : null;
+
+  for (const target of db.targets.filter(t => t.postId === postId)) {
+    if (target.status === "running" || target.status === "done") continue;
+    target.status = "pending";
+    target.error = "";
+    target.updatedAt = Date.now();
+  }
+
+  saveDB(db);
+  log("info", shouldPause ? "Paused post" : "Resumed post", { postId });
+  res.json({ ok: true, status: post.status });
 });
 
 app.post("/api/target/:id/retry", (req, res) => {
@@ -489,9 +576,12 @@ async function postToInstagram(target, post, profile) {
 }
 
 async function processPost(postId, manual = false) {
-  const db = loadDB();
+  const db = normalizeDb(loadDB());
   const post = db.posts.find(p => p.id === postId);
   if (!post) return { ok: false, error: "Post not found" };
+  if (post.status === "paused") {
+    return { ok: false, error: "Post is paused" };
+  }
   if (!manual && post.status !== "scheduled" && post.status !== "partial") {
     return { ok: false, error: "Post is not runnable" };
   }
@@ -509,7 +599,7 @@ async function processPost(postId, manual = false) {
   let failedCount = 0;
 
   for (const target of targets) {
-    const freshDb = loadDB();
+    const freshDb = normalizeDb(loadDB());
     const liveTarget = freshDb.targets.find(t => t.id === target.id);
     const profile = freshDb.profiles.find(p => p.id === target.profileId);
     const livePost = freshDb.posts.find(p => p.id === postId);
@@ -525,7 +615,7 @@ async function processPost(postId, manual = false) {
 
     const result = await postToInstagram(liveTarget, livePost, profile);
 
-    const postDb = loadDB();
+    const postDb = normalizeDb(loadDB());
     const finalTarget = postDb.targets.find(t => t.id === target.id);
     if (!finalTarget) continue;
 
@@ -549,7 +639,7 @@ async function processPost(postId, manual = false) {
     saveDB(postDb);
   }
 
-  const endDb = loadDB();
+  const endDb = normalizeDb(loadDB());
   const endPost = endDb.posts.find(p => p.id === postId);
   const remaining = endDb.targets.filter(t => t.postId === postId && (t.status === "pending" || t.status === "running")).length;
   if (endPost) {
@@ -570,7 +660,7 @@ async function schedulerTick() {
   schedulerBusy = true;
   lastSchedulerTickAt = Date.now();
   try {
-    const db = loadDB();
+    const db = normalizeDb(loadDB());
     const now = Date.now();
     const due = db.posts.filter(p => (p.status === "scheduled" || p.status === "partial") && Number(p.scheduledAt) <= now);
     for (const post of due) {
@@ -612,4 +702,14 @@ app.listen(PORT, HOST, () => {
     authEnabled: basicAuthEnabled(),
   });
   console.log(`http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}`);
+
+  const startupDb = normalizeDb(loadDB());
+  if (startupDb.settings?.catchUpOnStartup !== false) {
+    setTimeout(() => {
+      schedulerTick().catch(err => {
+        lastSchedulerError = err.message || String(err);
+        log("error", "Startup catch-up failed", { error: lastSchedulerError });
+      });
+    }, STARTUP_CATCHUP_DELAY_MS);
+  }
 });

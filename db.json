@@ -2,35 +2,14 @@
   "profiles": [
     {
       "id": "uruigavjab",
-      "name": "Account 1",
+      "name": "AL1312",
       "createdAt": 1775530888730,
       "pending": false,
       "connectedAt": 1775530922218
     }
   ],
-  "posts": [
-    {
-      "id": "38ziqcf825",
-      "caption": "line up may day 2026",
-      "imagePath": "uploads\\05b09651dbd5c86c74324dd0e88a763c",
-      "imageUrl": "/uploads/05b09651dbd5c86c74324dd0e88a763c",
-      "scheduledAt": 1775532540000,
-      "status": "done",
-      "createdAt": 1775532496071,
-      "lastRunAt": 1775532540238
-    }
-  ],
-  "targets": [
-    {
-      "id": "lt71vyamgr",
-      "postId": "38ziqcf825",
-      "profileId": "uruigavjab",
-      "status": "done",
-      "error": "",
-      "updatedAt": 1775532572442,
-      "attempts": 1
-    }
-  ],
+  "posts": [],
+  "targets": [],
   "logs": [
     {
       "id": "8d3znp3617",
