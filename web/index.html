@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>IG Autopost</h1>
+
+<button onclick="addProfile()">Add Account</button>
+
+<h2>Accounts</h2>
+<div id="profiles"></div>
+
+<h2>New Post</h2>
+
+<input type="file" id="file"><br>
+<textarea id="caption" placeholder="caption"></textarea><br>
+<input type="datetime-local" id="time"><br>
+
+<div id="profileCheckboxes"></div>
+
+<button onclick="submitPost()">Schedule</button>
+
+<h2>Posts</h2>
+<pre id="posts"></pre>
+
+<script src="app.js"></script>
+</body>
+</html>
