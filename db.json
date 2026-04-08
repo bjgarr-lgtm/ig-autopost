@@ -29,9 +29,2682 @@
       "connectedAt": 1775541617807
     }
   ],
-  "posts": [],
-  "targets": [],
+  "posts": [
+    {
+      "id": "laqmxjhhgs",
+      "caption": "today.\n\ncome through, find your way around, and be part of it.\n\neverything is already in motion.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/fa2ce336ee425b59a6dec7c493708df5",
+      "imageUrl": "/uploads/fa2ce336ee425b59a6dec7c493708df5",
+      "scheduledAt": 1777741200000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "cd2wrth0m8",
+      "caption": "it's almost time.\n\nwe're getting everything ready across the harbor.\n\nif you've been meaning to come, this is your reminder.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/8e71e416692f85f4316495b5e6f8df49",
+      "imageUrl": "/uploads/8e71e416692f85f4316495b5e6f8df49",
+      "scheduledAt": 1777672800000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "8ddwtsotsz",
+      "caption": "expect a mix of things happening at once.\n\nart installations, music, hands-on projects, workshops, and people moving between spaces.\n\nyou don't need a plan. just start somewhere and follow what pulls you in.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/17e59fa5ca2724bd2df82e601eed7ae5",
+      "imageUrl": "/uploads/17e59fa5ca2724bd2df82e601eed7ae5",
+      "scheduledAt": 1777586400000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "9h6ed9xoe9",
+      "caption": "free. all ages. open to everyone.\n\neverything is happening inside the building, with different spaces set up for art, the scavenger hunt, and everything else going on throughout the day.\n\ncome for an hour or stay all day. move through it at your own pace.\n\nmasks are required and will be provided at the door.\n\nfull details are on the site.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/61c097d7c7457d098c060325e163b50e",
+      "imageUrl": "/uploads/61c097d7c7457d098c060325e163b50e",
+      "scheduledAt": 1777154400000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "ftf4kdryj6",
+      "caption": "this isn't about a single day.\n\nit's about practicing what it looks like to gather, create, and support each other outside of the usual systems.\n\nmay day is just the moment we choose to do it together.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/d4e239229fb96b2bcaa37fe4cdb9598c",
+      "imageUrl": "/uploads/d4e239229fb96b2bcaa37fe4cdb9598c",
+      "scheduledAt": 1777068000000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "khhj7589xw",
+      "caption": "we take care of each other or we don't make it.\n\nmay day on the harbor is rooted in mutual aid, shared space, and showing up for each other in real ways.\n\nthis is about building something together, not just attending it.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/071aea8a81d4785ec842e8b41d1c5dc3",
+      "imageUrl": "/uploads/071aea8a81d4785ec842e8b41d1c5dc3",
+      "scheduledAt": 1776981600000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "fbexfloq9",
+      "caption": "start somewhere.\n\nyou don't need a plan, a schedule, or a 'right way' to do this.\n\nthere will be things happening across the harbor all day. art being made, music, the scavenger hunt, people moving between spaces and building something together in real time.\n\nwander. follow what pulls you. double back. stay where it feels right.\n\nyou're not late. you're not behind. just come through.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/caac210c57ffc9c1dd69ad1f2cec2697",
+      "imageUrl": "/uploads/caac210c57ffc9c1dd69ad1f2cec2697",
+      "scheduledAt": 1776549600000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "yzef4wzqlr",
+      "caption": "there's a second version of the city hiding in plain sight.\n\nthe scavenger hunt moves through the harbor, buildings, and in-between spaces most people walk past.\n\nyou'll solve riddles, find locations, and uncover pieces as you go.\n\nplay solo or with friends. start point is on the site.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/52e38c9614ce317398b37ec1c3ab19e0",
+      "imageUrl": "/uploads/52e38c9614ce317398b37ec1c3ab19e0",
+      "scheduledAt": 1776463200000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "sag22z0pbf",
+      "caption": "this is where things get made.\n\ninside the art center we're setting up open tables for zines, prints, collaborative pieces, and whatever people bring with them.\n\nyou can sit down, try something new, or just make a mess and see what comes out of it.\n\nno experience needed. no pressure to be good at anything.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/45da37c8afab63a28b2633e2c6cc702f",
+      "imageUrl": "/uploads/45da37c8afab63a28b2633e2c6cc702f",
+      "scheduledAt": 1776376800000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "h3iqeqye4r",
+      "caption": "art is not extra. it's how we remember and how we speak when everything else falls short.\n\nwe're opening a call for work as part of may day on the harbor. bring something you've made, something in progress, or something you want to share with the community.\n\nno gatekeeping. no 'right way' to do it.\n\nsubmission info is on the site.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/b1b6b421113c358820d57ebcc28d50ae",
+      "imageUrl": "/uploads/b1b6b421113c358820d57ebcc28d50ae",
+      "scheduledAt": 1775944800000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "ha172fm1rk",
+      "caption": "this isn't a festival you pass through.\n\nit's something we build together for a day and carry forward after.\n\nmay day on the harbor brings people into the same space to make things, share skills, and meet each other outside of the usual roles.\n\ncome as you are. stay as long as you want.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/d7bb38ab7243e093ea588e2379b14b10",
+      "imageUrl": "/uploads/d7bb38ab7243e093ea588e2379b14b10",
+      "scheduledAt": 1775858400000,
+      "status": "scheduled",
+      "createdAt": 1775545883912,
+      "lastRunAt": null
+    },
+    {
+      "id": "uunkf98f7w",
+      "caption": "may day on the harbor is coming back.\n\na day built by workers, artists, and neighbors. not a stage to watch from a distance, but something you step into.\n\nwe're taking over spaces across the harbor with art, music, workshops, and projects you can actually be part of.\n\ndetails, schedule, and how to get involved are on the site.\n\nmaydayontheharbor.com\n#MayDayOnTheHarbor",
+      "imagePath": "uploads/1ebd8e4d612c15c90d5bcacf7674a4e6",
+      "imageUrl": "/uploads/1ebd8e4d612c15c90d5bcacf7674a4e6",
+      "scheduledAt": 1775546100000,
+      "status": "done",
+      "createdAt": 1775545883912,
+      "lastRunAt": 1775624602333
+    }
+  ],
+  "targets": [
+    {
+      "id": "8x8dpm73fq",
+      "postId": "ha172fm1rk",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "b1we8ag4hj",
+      "postId": "ha172fm1rk",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "ow5mvz32rv",
+      "postId": "ha172fm1rk",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "ng4r5t8jm9",
+      "postId": "ha172fm1rk",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "vpymabn8yf",
+      "postId": "h3iqeqye4r",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "xh55hfg0v6",
+      "postId": "h3iqeqye4r",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "1bgj6efcrj",
+      "postId": "h3iqeqye4r",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "7fqtc2zwrs",
+      "postId": "h3iqeqye4r",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "5p6e2w9l4u",
+      "postId": "sag22z0pbf",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "o8fy4vsq8l",
+      "postId": "sag22z0pbf",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "1kbqugmujz",
+      "postId": "sag22z0pbf",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "vdv3g4l8t4",
+      "postId": "sag22z0pbf",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "jnwtwqtsj4",
+      "postId": "yzef4wzqlr",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "ehgxnwa41o",
+      "postId": "yzef4wzqlr",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "w54o7rv1ph",
+      "postId": "yzef4wzqlr",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "lut6ito782",
+      "postId": "yzef4wzqlr",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "otdf4hgn10",
+      "postId": "fbexfloq9",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "9h3diesudd",
+      "postId": "fbexfloq9",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "j9n4m1gfws",
+      "postId": "fbexfloq9",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "xhgia4t47e",
+      "postId": "fbexfloq9",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "vj2m3buvop",
+      "postId": "khhj7589xw",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "k0t6118izx",
+      "postId": "khhj7589xw",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "heb844uulr",
+      "postId": "khhj7589xw",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "6nhdtvbln6",
+      "postId": "khhj7589xw",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "md47m1uxym",
+      "postId": "ftf4kdryj6",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "7m0qb9petz",
+      "postId": "ftf4kdryj6",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "m2modi9hxi",
+      "postId": "ftf4kdryj6",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "krlktyik56",
+      "postId": "ftf4kdryj6",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "xoxp1639no",
+      "postId": "9h6ed9xoe9",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "m0lpeosqgu",
+      "postId": "9h6ed9xoe9",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "o92hyqjm9c",
+      "postId": "9h6ed9xoe9",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "zre86lx42s",
+      "postId": "9h6ed9xoe9",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "51ocq6eo8r",
+      "postId": "8ddwtsotsz",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "nw4jeti5c3",
+      "postId": "8ddwtsotsz",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "wyzdx6zf5f",
+      "postId": "8ddwtsotsz",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "bcxm5y45de",
+      "postId": "8ddwtsotsz",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "44vouclkt1",
+      "postId": "cd2wrth0m8",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "1luhlvyoxo",
+      "postId": "cd2wrth0m8",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "8ufba786c9",
+      "postId": "cd2wrth0m8",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "hlmau3vkw5",
+      "postId": "cd2wrth0m8",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "c2dihl2sja",
+      "postId": "laqmxjhhgs",
+      "profileId": "uruigavjab",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "5jjf92tbp9",
+      "postId": "laqmxjhhgs",
+      "profileId": "l18ido8psr",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "fl50ge678m",
+      "postId": "laqmxjhhgs",
+      "profileId": "v70ipc9mx8",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "y4o14h68q1",
+      "postId": "laqmxjhhgs",
+      "profileId": "hetfi679jw",
+      "status": "pending",
+      "error": "",
+      "updatedAt": 1775545883912,
+      "attempts": 0
+    },
+    {
+      "id": "q45nd512hd",
+      "postId": "uunkf98f7w",
+      "profileId": "uruigavjab",
+      "status": "done",
+      "error": "",
+      "updatedAt": 1775624455478,
+      "attempts": 16
+    },
+    {
+      "id": "8iydc5f9xo",
+      "postId": "uunkf98f7w",
+      "profileId": "l18ido8psr",
+      "status": "done",
+      "error": "",
+      "updatedAt": 1775624637494,
+      "attempts": 5
+    },
+    {
+      "id": "szat2vvi77",
+      "postId": "uunkf98f7w",
+      "profileId": "v70ipc9mx8",
+      "status": "done",
+      "error": "",
+      "updatedAt": 1775624669964,
+      "attempts": 5
+    },
+    {
+      "id": "w29rg5ir3y",
+      "postId": "uunkf98f7w",
+      "profileId": "hetfi679jw",
+      "status": "done",
+      "error": "",
+      "updatedAt": 1775624701625,
+      "attempts": 5
+    }
+  ],
   "logs": [
+    {
+      "id": "9owu9ik9d7",
+      "ts": 1775668387640,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false,
+        "flowVersion": "2026-04-08-c"
+      }
+    },
+    {
+      "id": "q0jrw9jrfg",
+      "ts": 1775625969565,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://127.0.0.1:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false,
+        "flowVersion": "2026-04-07-b"
+      }
+    },
+    {
+      "id": "lxgl680sdb",
+      "ts": 1775624669971,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "hetfi679jw",
+        "profileName": "BFC"
+      }
+    },
+    {
+      "id": "t0qw8ggvts",
+      "ts": 1775624637500,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "v70ipc9mx8",
+        "profileName": "CRMAN"
+      }
+    },
+    {
+      "id": "a9dji2nmdj",
+      "ts": 1775624602419,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "l18ido8psr",
+        "profileName": "MAY DAY"
+      }
+    },
+    {
+      "id": "lgq0pgzljr",
+      "ts": 1775624602346,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 3,
+        "manual": false
+      }
+    },
+    {
+      "id": "249yeg40mf",
+      "ts": 1775624497263,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "g8pw7sxm2y",
+      "ts": 1775624422943,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "bqi4ikuwss",
+      "ts": 1775624422928,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "pebkq1ez5y",
+      "ts": 1775624415837,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "93jxxk6xkj",
+      "ts": 1775624407916,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "otpnflnbu1",
+      "ts": 1775623672459,
+      "level": "info",
+      "message": "IG debug: error",
+      "extra": {
+        "step": "error",
+        "url": "https://www.instagram.com/create/details/",
+        "title": "Instagram",
+        "extra": {
+          "error": "Could not find second Next button (url: https://www.instagram.com/create/details/)"
+        }
+      }
+    },
+    {
+      "id": "m5mz0nuuhf",
+      "ts": 1775623672166,
+      "level": "info",
+      "message": "Second next result",
+      "extra": {
+        "secondNext": "Share",
+        "url": "https://www.instagram.com/create/details/"
+      }
+    },
+    {
+      "id": "h8ebzrf6dd",
+      "ts": 1775623672062,
+      "level": "info",
+      "message": "IG debug: after-first-next",
+      "extra": {
+        "step": "after-first-next",
+        "url": "https://www.instagram.com/create/details/",
+        "title": "Instagram",
+        "extra": {}
+      }
+    },
+    {
+      "id": "lce3ngqhr1",
+      "ts": 1775623669278,
+      "level": "info",
+      "message": "First next result",
+      "extra": {
+        "firstNext": "Next",
+        "url": "https://www.instagram.com/create/style/"
+      }
+    },
+    {
+      "id": "dgmsszjfv4",
+      "ts": 1775623667979,
+      "level": "info",
+      "message": "IG debug: after-aspect",
+      "extra": {
+        "step": "after-aspect",
+        "url": "https://www.instagram.com/create/style/",
+        "title": "Instagram",
+        "extra": {
+          "aspectApplied": false
+        }
+      }
+    },
+    {
+      "id": "kqzhgvuifl",
+      "ts": 1775623666258,
+      "level": "info",
+      "message": "Aspect selection result",
+      "extra": {
+        "aspectApplied": false
+      }
+    },
+    {
+      "id": "t6k6r4eebc",
+      "ts": 1775623666251,
+      "level": "error",
+      "message": "Crop menu trigger not found",
+      "extra": {}
+    },
+    {
+      "id": "pzql3d0ism",
+      "ts": 1775623666211,
+      "level": "info",
+      "message": "IG debug: after-upload",
+      "extra": {
+        "step": "after-upload",
+        "url": "https://www.instagram.com/create/style/",
+        "title": "Instagram",
+        "extra": {}
+      }
+    },
+    {
+      "id": "xoehhwcwzl",
+      "ts": 1775623660239,
+      "level": "info",
+      "message": "Setting upload file",
+      "extra": {
+        "absoluteImagePath": "C:\\Users\\bjgar\\Documents\\ig-autopost\\uploads\\1ebd8e4d612c15c90d5bcacf7674a4e6"
+      }
+    },
+    {
+      "id": "5zmfbbhl6x",
+      "ts": 1775623660202,
+      "level": "info",
+      "message": "IG debug: composer-opened",
+      "extra": {
+        "step": "composer-opened",
+        "url": "https://www.instagram.com/create/select/",
+        "title": "Chris Shelley (@create) • Instagram photos and videos",
+        "extra": {}
+      }
+    },
+    {
+      "id": "qn9i54shw0",
+      "ts": 1775623653042,
+      "level": "info",
+      "message": "IG debug: home",
+      "extra": {
+        "step": "home",
+        "url": "https://www.instagram.com/",
+        "title": "Instagram",
+        "extra": {}
+      }
+    },
+    {
+      "id": "8t1pb2tnh8",
+      "ts": 1775623644814,
+      "level": "info",
+      "message": "Starting Instagram post run",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312",
+        "imagePath": "uploads/1ebd8e4d612c15c90d5bcacf7674a4e6",
+        "captionLength": 370
+      }
+    },
+    {
+      "id": "a6furklwea",
+      "ts": 1775623638405,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "6aecabycsc",
+      "ts": 1775623638393,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "r5cqumn9z7",
+      "ts": 1775623628143,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "5p1v8zyx3x",
+      "ts": 1775623623383,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "85gsfd446k",
+      "ts": 1775622187029,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "hetfi679jw",
+        "profileName": "BFC"
+      }
+    },
+    {
+      "id": "itz1kt8q2k",
+      "ts": 1775622147961,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "8b44fpy7td",
+      "ts": 1775622147916,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 2,
+        "manual": false
+      }
+    },
+    {
+      "id": "ff9taf9v0j",
+      "ts": 1775622134471,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "cjuvlr7ui9",
+      "ts": 1775622132921,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "ayfsjspup9",
+      "ts": 1775588412914,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "v70ipc9mx8",
+        "profileName": "CRMAN"
+      }
+    },
+    {
+      "id": "0hxe3a8poi",
+      "ts": 1775588391590,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "20429t8ukg",
+      "ts": 1775588391577,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 3,
+        "manual": false
+      }
+    },
+    {
+      "id": "e05r08wx79",
+      "ts": 1775588388914,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "8n9f952hi2",
+      "ts": 1775588376559,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "satzkfo2xc",
+      "ts": 1775588046441,
+      "level": "info",
+      "message": "Instagram account setup cancelled",
+      "extra": {
+        "profileId": "cio6ei3ck"
+      }
+    },
+    {
+      "id": "43tgrszakw",
+      "ts": 1775588041949,
+      "level": "info",
+      "message": "Opened login browser for new account",
+      "extra": {
+        "profileId": "cio6ei3ck"
+      }
+    },
+    {
+      "id": "rw1rjjon44",
+      "ts": 1775588038806,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "9q3swetyo2",
+      "ts": 1775587635828,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "l18ido8psr",
+        "profileName": "MAY DAY"
+      }
+    },
+    {
+      "id": "c3kw4vw4wp",
+      "ts": 1775587612043,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "mghrzxk3xf",
+      "ts": 1775587612029,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 4,
+        "manual": false
+      }
+    },
+    {
+      "id": "w3dkj9vcpm",
+      "ts": 1775587401943,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "l2yww9qsby",
+      "ts": 1775587000846,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "farg4qihyp",
+      "ts": 1775587000831,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "oymvxj85m2",
+      "ts": 1775586970823,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "p468ga3vn8",
+      "ts": 1775586970811,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "uqwdxqqrzf",
+      "ts": 1775586966778,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "kr40zynxyt",
+      "ts": 1775586955810,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "gw62t3fcyn",
+      "ts": 1775586673172,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "hetfi679jw",
+        "profileName": "BFC"
+      }
+    },
+    {
+      "id": "i0drzwius3",
+      "ts": 1775586650964,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "lc90fn2trj",
+      "ts": 1775586650955,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 2,
+        "manual": false
+      }
+    },
+    {
+      "id": "5j2oiyjqj6",
+      "ts": 1775586648308,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "zu0t354ly3",
+      "ts": 1775586635946,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "6mc509epkr",
+      "ts": 1775585825816,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "v70ipc9mx8",
+        "profileName": "CRMAN"
+      }
+    },
+    {
+      "id": "ar62kbh6dd",
+      "ts": 1775585789852,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "c1urdjrty7",
+      "ts": 1775585789841,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 3,
+        "manual": false
+      }
+    },
+    {
+      "id": "8kcuf4gjmr",
+      "ts": 1775585788411,
+      "level": "info",
+      "message": "Reset target to pending",
+      "extra": {
+        "targetId": "q45nd512hd"
+      }
+    },
+    {
+      "id": "ld5yf7ya71",
+      "ts": 1775585774843,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "zfnivxpf8h",
+      "ts": 1775585074582,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "l18ido8psr",
+        "profileName": "MAY DAY"
+      }
+    },
+    {
+      "id": "2xyoa9srjb",
+      "ts": 1775585047025,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "0nfplvx5pk",
+      "ts": 1775585047009,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 4,
+        "manual": false
+      }
+    },
+    {
+      "id": "wz5ueni3u6",
+      "ts": 1775584926945,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "m1ocm1wpzw",
+      "ts": 1775584684512,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "wyu6o6z8c8",
+      "ts": 1775583825134,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "2g8565tms3",
+      "ts": 1775583825064,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "t0yfg1yyj5",
+      "ts": 1775583779953,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "f4koenokml",
+      "ts": 1775583779937,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 1,
+        "manual": false
+      }
+    },
+    {
+      "id": "mp7c2tz5hq",
+      "ts": 1775583764929,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "fvt8cqdu2p",
+      "ts": 1775547073590,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "hetfi679jw",
+        "profileName": "BFC"
+      }
+    },
+    {
+      "id": "xf1zlem5b1",
+      "ts": 1775547047216,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "j13xdyvk71",
+      "ts": 1775547047201,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 2,
+        "manual": false
+      }
+    },
+    {
+      "id": "6mcnehwrpq",
+      "ts": 1775547032188,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "ey851l9l32",
+      "ts": 1775546501188,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "v70ipc9mx8",
+        "profileName": "CRMAN"
+      }
+    },
+    {
+      "id": "d6t91ya69u",
+      "ts": 1775546475665,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "0h3uhcjmtz",
+      "ts": 1775546475650,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 3,
+        "manual": false
+      }
+    },
+    {
+      "id": "ccxaobfsif",
+      "ts": 1775546460648,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "x4krqecl4k",
+      "ts": 1775546175278,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "l18ido8psr",
+        "profileName": "MAY DAY"
+      }
+    },
+    {
+      "id": "p92lgquqje",
+      "ts": 1775546163619,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "2ar6if9hlo",
+      "ts": 1775546163609,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 4,
+        "manual": false
+      }
+    },
+    {
+      "id": "7p07xo5ssw",
+      "ts": 1775546146703,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "hetfi679jw",
+        "profileName": "BFC"
+      }
+    },
+    {
+      "id": "lxpl3qs3ow",
+      "ts": 1775546133604,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "v70ipc9mx8",
+        "profileName": "CRMAN"
+      }
+    },
+    {
+      "id": "6vqr9ftlxt",
+      "ts": 1775546120423,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "l18ido8psr",
+        "profileName": "MAY DAY"
+      }
+    },
+    {
+      "id": "0o9jisx474",
+      "ts": 1775546103577,
+      "level": "info",
+      "message": "Posting to account",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "profileId": "uruigavjab",
+        "profileName": "AL1312"
+      }
+    },
+    {
+      "id": "n5dsagyt2t",
+      "ts": 1775546103567,
+      "level": "info",
+      "message": "Running post",
+      "extra": {
+        "postId": "uunkf98f7w",
+        "targetCount": 4,
+        "manual": false
+      }
+    },
+    {
+      "id": "rzciqmm5yi",
+      "ts": 1775545883915,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "nmz2vo0nwu",
+      "ts": 1775545883867,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/fa2ce336ee425b59a6dec7c493708df5",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "t1r4p2euz9",
+      "ts": 1775545883807,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/8e71e416692f85f4316495b5e6f8df49",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "j8fe1zhi52",
+      "ts": 1775545883748,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/17e59fa5ca2724bd2df82e601eed7ae5",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "7qi9xo5gdj",
+      "ts": 1775545883708,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/61c097d7c7457d098c060325e163b50e",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "6ggs3iyk6y",
+      "ts": 1775545883664,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d4e239229fb96b2bcaa37fe4cdb9598c",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "76hs8b9y2p",
+      "ts": 1775545883621,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/071aea8a81d4785ec842e8b41d1c5dc3",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "e4ud7pdc4a",
+      "ts": 1775545883583,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/caac210c57ffc9c1dd69ad1f2cec2697",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "qnsrq68g14",
+      "ts": 1775545883550,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/52e38c9614ce317398b37ec1c3ab19e0",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "rmrvuxncdc",
+      "ts": 1775545883523,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/45da37c8afab63a28b2633e2c6cc702f",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "psih9gdjhi",
+      "ts": 1775545883490,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/b1b6b421113c358820d57ebcc28d50ae",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "o34fnd8swt",
+      "ts": 1775545883449,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d7bb38ab7243e093ea588e2379b14b10",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "7xlkbg3ozy",
+      "ts": 1775545883389,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/1ebd8e4d612c15c90d5bcacf7674a4e6",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "br0aco2zb",
+      "ts": 1775545848460,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "5hmk3yx1w0",
+      "ts": 1775545760636,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "6t5f3nce96",
+      "ts": 1775545760622,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/8c5d1ed9525e7b6336055a47c7f3b976",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "fvhheubyf7",
+      "ts": 1775545760583,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/f6be82ae4e8c9e6cd2841ad87ba0855e",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "jhaedymg3a",
+      "ts": 1775545760544,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/a8a7840e0dbfd00f860066c9eb4083b5",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "qmv4lrqxx4",
+      "ts": 1775545760513,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/9f2d241c6e13d86cea1275f31d406049",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "b77gtjrgm7",
+      "ts": 1775545760481,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/be2e37904ba44802fae99feb4b653095",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "yeqlybbvgw",
+      "ts": 1775545760453,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/44024a0fcdb5747bedb734c6393b0d32",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "k6kg874xbb",
+      "ts": 1775545760428,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/3126d745ebb9d18e72a91fc9fb91e4ca",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "801jswvlt6",
+      "ts": 1775545760400,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/fb3e5540cdef639edbc69e0314fbf4e9",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "dbsm5wzbj7",
+      "ts": 1775545760355,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/9dcfb1139ce4352d190b7554af577202",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "nvkt7v38xi",
+      "ts": 1775545760314,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/9ad6eef5039a106b42cf56a86cd825c5",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "utsty42f7a",
+      "ts": 1775545760264,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/c4ac7e02be0dcab8713cd0c214e410eb",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "ss2o0v59t7",
+      "ts": 1775545760216,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/169e182c21a86b1f3c435bd6de590b2a",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "jzsylcz12i",
+      "ts": 1775544998070,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "mq5ighagh0",
+      "ts": 1775544998020,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/049c3fb200136b9a80befbd84b33f091",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "npw1u8i2wi",
+      "ts": 1775544997970,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/26322bce777690a4ff9cb317dc0ee7dc",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "q7rn99sro8",
+      "ts": 1775544997906,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/beafeed516a20d1551b98314aac1d1ac",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "h0oug3wc72",
+      "ts": 1775544997862,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/e7b444fe1c5d0e50ed1d7b0468ba4697",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "dyyeev5wol",
+      "ts": 1775544997816,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/8eda9e427c2c7a98b49be7d11d78c807",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "cc6rso1u20",
+      "ts": 1775544997764,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/9c7916fa9ca1a5fbdf22447dc14649d1",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "2c0wf3xqwc",
+      "ts": 1775544997721,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d74f444460061fb2a9d0c5a4f3d157f7",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "u8a66k9br7",
+      "ts": 1775544997676,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/99ae637ed7726d32786cd33d187805b4",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "8aphrq5dqd",
+      "ts": 1775544997630,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/a77f2cae5e1273f08b7a0e7cf1a266e2",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "wg2oarwvdp",
+      "ts": 1775544997580,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/50773e2c0f5be90257ff8be3d2dc2186",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "fjvdxv59lh",
+      "ts": 1775544997537,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/43594de1055e64fbb003937c4d64ef52",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "znde9n10tb",
+      "ts": 1775544997486,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/c5fc79e9e72f6948c453ebaae8cdf065",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "dhyc1e14so",
+      "ts": 1775544948715,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "o57tfp4oty",
+      "ts": 1775544877266,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "akez2uezhk",
+      "ts": 1775544877255,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/4f981dfe29c7c8009f23ced43c8d046b",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "bvayled2gi",
+      "ts": 1775544877231,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/e130555f652a84b8c395dcfdef42cd6a",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "1w1czrlt68",
+      "ts": 1775544877207,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/86bc6624a8967ffea087c1cc798abed6",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "oguc0qevz7",
+      "ts": 1775544877182,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/7ed0ca83da99eb593a687a0195af6086",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "2wo6v61da5",
+      "ts": 1775544877135,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/4b3eb2bbe5b2dd018996e809267aa791",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "xqezsqhsrv",
+      "ts": 1775544877109,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/8adde2642da0c117969d0bae2af8509e",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "o19jvmzj4r",
+      "ts": 1775544877082,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/85deb18becb04d69023a4a91e244f6fe",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "0mmwnxn6u0",
+      "ts": 1775544877057,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/41afeb79234e4cab41d7b5172ef68618",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "tv0e7y6mlv",
+      "ts": 1775544877028,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/3d0cd065ac4d3d17efcaa136c546de6e",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "71flsfjej5",
+      "ts": 1775544876997,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/e8eb9855cd064b890e499a01de4f5576",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "v5nkq805kx",
+      "ts": 1775544876947,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/aba6ed52ae33d7e0b246a58055922f22",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "d923ejcagj",
+      "ts": 1775544876903,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/87e65fc030e7409889af7c390d82c5e7",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "d5enzbn698",
+      "ts": 1775544526016,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "lsekbcycy3",
+      "ts": 1775544526006,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/ceb18f5762eb7cc581305b095c532fad",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "m8a3vt3bgy",
+      "ts": 1775544525983,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/5c56e9406c75dde3d2e6cbda8565b017",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "mqhiirx8u8",
+      "ts": 1775544525959,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/6da3dbfb3930db4bdf39d15057e17429",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "aovt95tmhx",
+      "ts": 1775544525931,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d56e1772edc73641813c4d022df2be50",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "gyn6f02km2",
+      "ts": 1775544525887,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/16bc4cdc22c44fbf063d6978bf6fcda7",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "hw1vl7garv",
+      "ts": 1775544525844,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/7b2c5909d8ac032fa9547d1af0bad142",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "40te53rd92",
+      "ts": 1775544525807,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/c02bf9587973a0f8929d3440aed0e2ab",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "oqb1ozo5cc",
+      "ts": 1775544525772,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/50b8b8848c01944cf921a12bc31cf718",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "zwir6mt27b",
+      "ts": 1775544525726,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/8cb2ec1ac0f931403eeaa2d16b491976",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "un1fbc89ne",
+      "ts": 1775544525679,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/3b12e61b65be018d29ed19737e54a2e8",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "hxzek398ae",
+      "ts": 1775544525634,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d0e900b4dee5eedb6f104ebd6602101f",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "hfulhehi3r",
+      "ts": 1775544525583,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/7add53c468a01da25035435e101d6949",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "ioeefi4339",
+      "ts": 1775543787102,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "ie73o3uf7u",
+      "ts": 1775543787092,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/99ffef38edd66a914b12b19fbd4065cc",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "iwnfgcy1by",
+      "ts": 1775543787065,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/a2b6ebfae55904e9174953c857e05e04",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "kg1zwhwnzn",
+      "ts": 1775543787037,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d0e345481c2c61cbb5b91ea6792280af",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "pe2jqmmz9e",
+      "ts": 1775543787010,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/219f0f66d81e57bc82e8cf063320c3e7",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "uatt6cv8nc",
+      "ts": 1775543786980,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/57a54363a31b1c9e87ae9db875739337",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "gpwytzvx0w",
+      "ts": 1775543786936,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/4f975430dcaf4784563cb5ee76d85d6d",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "s8wy2mvueo",
+      "ts": 1775543786898,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/84ad846fb10126fe36113e4339501a30",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "9muc4bdsey",
+      "ts": 1775543786856,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/2f0ce38b8506c9769bd722237d8d502c",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "kvxcg5bjss",
+      "ts": 1775543786800,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/554fc506b5401bce8d9bf2219aaccf24",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "gnx9uiisyr",
+      "ts": 1775543786761,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/3837e4ebf3480f56a697f2d73080d00b",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "asqs4j5whw",
+      "ts": 1775543786719,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/1f77796a012ee460b805df74fdd6fb9e",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "mn927ei0nv",
+      "ts": 1775543786675,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/4845f57c752fefefcc257e658819a48f",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "m6g0t021c9",
+      "ts": 1775543311324,
+      "level": "info",
+      "message": "Imported scheduled posts",
+      "extra": {
+        "count": 12
+      }
+    },
+    {
+      "id": "xbn5j04c1p",
+      "ts": 1775543311293,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d724d5e74f833442a4e6a1cc1c820b8b",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "sb0k6vd1m1",
+      "ts": 1775543311248,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/ec36db1465c7762257b11cbdcfdac344",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "rqhtzwbay1",
+      "ts": 1775543311201,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/aa9146acb2d6d06334eaa37ca6fface9",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "cn4lc7xoqt",
+      "ts": 1775543311118,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/dffada6096f3d9d4d30c7be9a5d8699a",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "sofb0nrqe9",
+      "ts": 1775543311091,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/7308079936633923328a08a945e62902",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "s0kwo2t3k1",
+      "ts": 1775543311063,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/441a990421c1b196bf21d5d52b560954",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "hfchlyps6u",
+      "ts": 1775543311037,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/16b7330efd704a0e3ffa2708f59afaab",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "99gm64cviy",
+      "ts": 1775543311012,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/9869d371b33bbe204fbab23fc3d60ef7",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "rq5yc2d10x",
+      "ts": 1775543310907,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/f6b062aa7d60eb2a60465c96f2d50532",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "7ldptk16ne",
+      "ts": 1775543310857,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/fd1bffef28fd244dafab5fd3d0d0a88b",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "iaiurs9ic0",
+      "ts": 1775543310807,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/d9907c82b84224a144afa6501d7794f2",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "qdiv6bedkp",
+      "ts": 1775543310762,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads/5815de8533f8e68ad45b793861d3315c",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "s5wjrmlnyu",
+      "ts": 1775543258507,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "2nr7ex8mki",
+      "ts": 1775542805823,
+      "level": "info",
+      "message": "Server started",
+      "extra": {
+        "url": "http://localhost:3000",
+        "dataDir": "C:\\Users\\bjgar\\Documents\\ig-autopost",
+        "authEnabled": false
+      }
+    },
+    {
+      "id": "ahtm9b07h6",
+      "ts": 1775542784332,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\4d6ff346941c32265cfac9e6fd052526",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "nz3hmks0lv",
+      "ts": 1775542784300,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\9bf425d895219b97ed5acb00b67ed93f",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "zofj2j6irz",
+      "ts": 1775542784262,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\3aaeb40fb5a469a81194e4912d752c8c",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "6qw1g1z1cr",
+      "ts": 1775542784231,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\0744896af6f686c1b981d3c011930718",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "7i38szn9u8",
+      "ts": 1775542784182,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\ec8e7f692e80ec7eca178cc02f8c6f6c",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "2j4ulxgck8",
+      "ts": 1775542784147,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\f3e7959dc4cd82483571a98866200cd4",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "6ovu1fqaue",
+      "ts": 1775542784118,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\3083dcc8933bb8244b07298235490c35",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "rknb3095zv",
+      "ts": 1775542784089,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\3b06a5d79098b1913b744c0538f68859",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "9apr6z4aqr",
+      "ts": 1775542784057,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\118f2a559ff580bfd463afc5a2600100",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "0qocfj0gmk",
+      "ts": 1775542784025,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\06ad76e59a2f31acef95c5da789db916",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "vi8fduk60h",
+      "ts": 1775542783958,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\826952e4db241fef4c87e923df591e2d",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "u2f4x4j68e",
+      "ts": 1775542783896,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\ba097711cd1e5c3b28d0d2340a1890c8",
+        "original": "1.png"
+      }
+    },
+    {
+      "id": "0imlv570bu",
+      "ts": 1775542749862,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\982eef906e993168ac67c8f42a1a8fd4",
+        "original": "12.png"
+      }
+    },
+    {
+      "id": "9shoy7ho0z",
+      "ts": 1775542749841,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\87961ab7425e64610e9969fae6762d32",
+        "original": "11.png"
+      }
+    },
+    {
+      "id": "enade5dd3d",
+      "ts": 1775542749816,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\85bbdce700156337cbf40db7a541e352",
+        "original": "10.png"
+      }
+    },
+    {
+      "id": "nw2raly35r",
+      "ts": 1775542749773,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\52f8a9f01f04d736baeb93f367aa011e",
+        "original": "9.png"
+      }
+    },
+    {
+      "id": "yhl0wx51k8",
+      "ts": 1775542749730,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\e317169ee41fe38c43d957c0d83fba66",
+        "original": "8.png"
+      }
+    },
+    {
+      "id": "5m0qix2l5b",
+      "ts": 1775542749676,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\acb1d0956431c2bc4160e1572183037b",
+        "original": "7.png"
+      }
+    },
+    {
+      "id": "l2js1iqb04",
+      "ts": 1775542749650,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\a95d57ce4104686d3880b5ccd12658aa",
+        "original": "6.png"
+      }
+    },
+    {
+      "id": "ksbyipyy28",
+      "ts": 1775542749624,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\34132589e8ad0636b963643c4d1c24be",
+        "original": "5.png"
+      }
+    },
+    {
+      "id": "7z85io110z",
+      "ts": 1775542749590,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\a857e86c7dc69af71d921f0f77c6294c",
+        "original": "4.png"
+      }
+    },
+    {
+      "id": "wa2zeaojad",
+      "ts": 1775542749545,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\37eb8d59ba007e4e662a7815a508561d",
+        "original": "3.png"
+      }
+    },
+    {
+      "id": "ivnix36k4r",
+      "ts": 1775542749501,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\5cd8c7d238f3a9f5e9625b200a5c4505",
+        "original": "2.png"
+      }
+    },
+    {
+      "id": "vdn52o7hnm",
+      "ts": 1775542749456,
+      "level": "info",
+      "message": "Uploaded media",
+      "extra": {
+        "path": "uploads\\9b72a6d1d80f91f68f0816681007a64c",
+        "original": "1.png"
+      }
+    },
     {
       "id": "3irgtfn342",
       "ts": 1775542477360,
@@ -971,333 +3644,6 @@
     {
       "id": "iz7hdf70g5",
       "ts": 1775532450204,
-      "level": "info",
-      "message": "Server started",
-      "extra": {
-        "url": "http://localhost:3000"
-      }
-    },
-    {
-      "id": "d8yf6boyz2",
-      "ts": 1775532153633,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "d454lkcw1s",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "86qym9i9u8",
-      "ts": 1775532153625,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "d454lkcw1s",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "9mx1q0cvs2",
-      "ts": 1775532123615,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "d454lkcw1s",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "bmztuitb27",
-      "ts": 1775532123608,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "d454lkcw1s",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "1i72f13saq",
-      "ts": 1775532105071,
-      "level": "info",
-      "message": "Scheduled post",
-      "extra": {
-        "postId": "d454lkcw1s",
-        "profileCount": 1
-      }
-    },
-    {
-      "id": "cxtlb6bhoo",
-      "ts": 1775532105021,
-      "level": "info",
-      "message": "Uploaded media",
-      "extra": {
-        "path": "uploads\\18c59da8f2505da8589b8ba52210d4fa",
-        "original": "Screenshot 2026-04-06 103513.png"
-      }
-    },
-    {
-      "id": "a0eu5y4p61",
-      "ts": 1775531703392,
-      "level": "info",
-      "message": "Server started",
-      "extra": {
-        "url": "http://localhost:3000"
-      }
-    },
-    {
-      "id": "almizsvosd",
-      "ts": 1775531449276,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "ghoibmx3yz",
-      "ts": 1775531449270,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "3h0pjjf49a",
-      "ts": 1775531433523,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "kvfx0w9jmi",
-      "ts": 1775531433514,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": true
-      }
-    },
-    {
-      "id": "zyicta81np",
-      "ts": 1775531419248,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "i5vjsbwbk",
-      "ts": 1775531419240,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "ylkce7y072",
-      "ts": 1775531404262,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "lbv7c0tku2",
-      "ts": 1775531404243,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "ycrmdqfkly",
-      "ts": 1775531389235,
-      "level": "info",
-      "message": "Server started",
-      "extra": {
-        "url": "http://localhost:3000"
-      }
-    },
-    {
-      "id": "trsysd144b",
-      "ts": 1775531064065,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "b49x3pjtz3",
-      "ts": 1775531064058,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "cfggliaioz",
-      "ts": 1775531049051,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "jrmlu3smj5",
-      "ts": 1775531049045,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "tq6f197lmy",
-      "ts": 1775531034051,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "5mctl27yon",
-      "ts": 1775531034044,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "piszyaa3kh",
-      "ts": 1775531004026,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "zdrkiw1lcd",
-      "ts": 1775531004020,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "4hhu20hb76",
-      "ts": 1775530989020,
-      "level": "info",
-      "message": "Posting to account",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileId": "uruigavjab",
-        "profileName": "Account 1"
-      }
-    },
-    {
-      "id": "yygvk522xf",
-      "ts": 1775530989014,
-      "level": "info",
-      "message": "Running post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "targetCount": 1,
-        "manual": false
-      }
-    },
-    {
-      "id": "2dcsv9avog",
-      "ts": 1775530947223,
-      "level": "info",
-      "message": "Scheduled post",
-      "extra": {
-        "postId": "e1r02y8s4i",
-        "profileCount": 1
-      }
-    },
-    {
-      "id": "ygd4lrer45",
-      "ts": 1775530947205,
-      "level": "info",
-      "message": "Uploaded media",
-      "extra": {
-        "path": "uploads\\b40e2e9e9ed2600b8b8a5e2607248de0",
-        "original": "Screenshot 2026-04-06 103513.png"
-      }
-    },
-    {
-      "id": "ixyxyqwoyz",
-      "ts": 1775530922221,
-      "level": "info",
-      "message": "Instagram account connected",
-      "extra": {
-        "profileId": "uruigavjab"
-      }
-    },
-    {
-      "id": "ubdpq0nquk",
-      "ts": 1775530893968,
-      "level": "info",
-      "message": "Opened login browser for new account",
-      "extra": {
-        "profileId": "uruigavjab"
-      }
-    },
-    {
-      "id": "2w9c57aa4e",
-      "ts": 1775530868926,
       "level": "info",
       "message": "Server started",
       "extra": {

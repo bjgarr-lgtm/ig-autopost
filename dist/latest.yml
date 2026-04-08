@@ -1,0 +1,8 @@
+version: 3.4.0
+files:
+  - url: IG-Autopost-3.4.0-Setup.exe
+    sha512: 5WlekscO1QVbFi/nJodYCaMbW8yCSGOqmpeoBQMgCcdoYYrU28f7G8poTmfPpoiI77B/xO9dhklqyZEQEjx1fg==
+    size: 88537028
+path: IG-Autopost-3.4.0-Setup.exe
+sha512: 5WlekscO1QVbFi/nJodYCaMbW8yCSGOqmpeoBQMgCcdoYYrU28f7G8poTmfPpoiI77B/xO9dhklqyZEQEjx1fg==
+releaseDate: '2026-04-08T19:55:46.681Z'

@@ -1,0 +1,31 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.bjgarr.igautopost
+productName: IG Autopost
+files:
+  - filter:
+      - server.js
+      - web/**/*
+      - electron/**/*
+      - package.json
+asar: true
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  icon: assets/icon.ico
+portable:
+  artifactName: IG-Autopost-${version}-Portable.${ext}
+nsis:
+  artifactName: IG-Autopost-${version}-Setup.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: IG Autopost
+electronVersion: 35.7.5

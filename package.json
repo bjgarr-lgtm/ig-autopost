@@ -1,15 +1,60 @@
 {
-  "name": "ig-local-autopost",
-  "version": "3.0.0",
+  "name": "ig-autopost",
+  "version": "3.4.0",
+  "main": "electron/main.js",
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "install:browsers": "playwright install chromium",
-    "install:browsers:linux": "playwright install --with-deps chromium"
+    "desktop": "electron .",
+    "dist": "electron-builder --win nsis portable",
+    "dist:portable": "electron-builder --win portable",
+    "dist:installer": "electron-builder --win nsis"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "multer": "1.4.5-lts.1",
-    "playwright": "^1.43.0"
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2",
+    "playwright": "^1.52.0"
+  },
+  "devDependencies": {
+    "electron": "^35.1.5",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.bjgarr.igautopost",
+    "productName": "IG Autopost",
+    "files": [
+      "server.js",
+      "web/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "portable": {
+      "artifactName": "IG-Autopost-${version}-Portable.${ext}"
+    },
+    "nsis": {
+      "artifactName": "IG-Autopost-${version}-Setup.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "IG Autopost"
+    }
   }
 }
