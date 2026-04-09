@@ -16,7 +16,7 @@ const APP_USER = String(process.env.APP_USER || "").trim();
 const APP_PASS = String(process.env.APP_PASS || "");
 const TICK_MS = 15000;
 const PROFILE_LOGIN_POLL_MS = 2000;
-const IG_FLOW_VERSION = "2026-04-08-c";
+const IG_FLOW_VERSION = "2026-04-07-b";
 const DEBUG_CAPTURE_DEFAULT = String(process.env.DEBUG_CAPTURE || "1") !== "0";
 
 fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -115,7 +115,24 @@ function authRequired(req, res, next) {
   return res.status(401).send("Authentication required");
 }
 
+
 app.use(authRequired);
+app.use((req, res, next) => {
+  if (
+    req.method === "GET" && (
+      req.path === "/" ||
+      req.path.endsWith(".html") ||
+      req.path.endsWith(".js") ||
+      req.path.endsWith(".css")
+    )
+  ) {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+    res.setHeader("Surrogate-Control", "no-store");
+  }
+  next();
+});
 app.use(express.static(WEB_DIR));
 app.use("/uploads", express.static(UPLOADS_DIR));
 
@@ -903,36 +920,6 @@ async function advanceToDetails(page, screenshotBase, debugMode) {
 
   await page.waitForURL("**/create/details/**", { timeout: 15000 });
   return true;
-}
-
-
-async function waitForShareSuccess(page, timeoutMs = 45000) {
-  const started = Date.now();
-  const successTexts = [
-    "Your post has been shared.",
-    "Post shared",
-    "Sharing...",
-    "Shared",
-    "Reel shared",
-  ];
-
-  while (Date.now() - started < timeoutMs) {
-    for (const txt of successTexts) {
-      try {
-        const locator = page.getByText(txt, { exact: false });
-        if (await locator.count()) return true;
-      } catch {}
-    }
-
-    const currentUrl = page.url();
-    if (/instagram\.com\/(?:[^/]+\/)?$/.test(currentUrl) || currentUrl === "https://www.instagram.com/") {
-      return true;
-    }
-
-    await page.waitForTimeout(1000);
-  }
-
-  return false;
 }
 
 async function postToInstagram(target, post, profile) {

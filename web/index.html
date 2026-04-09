@@ -116,6 +116,7 @@
     </div>
   </div>
 
+
   <div id="renameModal" class="modal hidden">
     <div class="modal-card">
       <div class="section-head">
@@ -135,24 +136,25 @@
     </div>
   </div>
 
-  <div id="bulkRescheduleModal" class="modal hidden">
-    <div class="modal-card">
-      <div class="section-head">
-        <div>
-          <h2>Bulk reschedule</h2>
-          <p class="muted">Shift all selected posts by a number of minutes. Use negative numbers to move earlier.</p>
-        </div>
-        <button class="button ghost" data-close-modal="bulkRescheduleModal">Close</button>
+
+<div id="bulkRescheduleModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="section-head">
+      <div>
+        <h2>Bulk reschedule</h2>
+        <p class="muted">Shift all selected posts by minutes. Use negative numbers to move earlier.</p>
       </div>
-      <label class="field">
-        <span>Minute offset</span>
-        <input type="number" id="bulkRescheduleInput" step="1" value="15" placeholder="15" />
-      </label>
-      <div class="actions">
-        <button class="button button-primary" id="bulkRescheduleSaveBtn">Apply shift</button>
-      </div>
+      <button class="button ghost" data-close-modal="bulkRescheduleModal">Close</button>
+    </div>
+    <label class="field">
+      <span>Minute offset</span>
+      <input type="number" id="bulkMinuteOffsetInput" step="1" placeholder="15" />
+    </label>
+    <div class="actions">
+      <button class="button button-primary" id="bulkRescheduleSaveBtn">Apply shift</button>
     </div>
   </div>
+</div>
 
   <div id="importModal" class="modal hidden">
     <div class="modal-card modal-card-wide">

@@ -30,14 +30,6 @@ const els = {
   editTimeInput: document.getElementById("editTimeInput"),
   editAccountsWrap: document.getElementById("editAccountsWrap"),
   editSaveBtn: document.getElementById("editSaveBtn"),
-  renameModal: document.getElementById("renameModal"),
-  renameProfileId: document.getElementById("renameProfileId"),
-  renameInput: document.getElementById("renameInput"),
-  renameSaveBtn: document.getElementById("renameSaveBtn"),
-  bulkRescheduleModal: document.getElementById("bulkRescheduleModal"),
-  bulkRescheduleInput: document.getElementById("bulkRescheduleInput"),
-  bulkRescheduleSaveBtn: document.getElementById("bulkRescheduleSaveBtn"),
-  scheduleSubmitBtn: document.getElementById("scheduleSubmitBtn"),
 };
 
 let state = { profiles: [], posts: [], targets: [] };
@@ -45,7 +37,6 @@ let selectedImage = null;
 let lastApiFailure = "";
 let selectedPostIds = new Set();
 let editingPostId = "";
-let renamingProfileId = "";
 
 async function apiFetch(url, options = {}) {
   const res = await fetch(url, options);
@@ -272,17 +263,17 @@ async function addAccount() {
   }
 }
 
-function renameAccount(id) {
+async function renameAccount(id) {
   const current = state.profiles.find(p => p.id === id);
-  if (!current) {
-    showToast("Account not found.", "error");
-    return;
-  }
-  renamingProfileId = id;
-  els.renameProfileId.textContent = id;
-  els.renameInput.value = current.name || "";
-  openModal(els.renameModal);
-  setTimeout(() => els.renameInput.focus(), 0);
+  const name = prompt("Account name", current?.name || "");
+  if (!name) return;
+
+  await apiFetch("/api/profile/rename", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id, name })
+  });
+  await refreshState(true);
 }
 
 async function removeAccount(id) {
@@ -322,9 +313,6 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.add("hidden");
-  if (modal === els.renameModal) {
-    renamingProfileId = "";
-  }
 }
 
 function selectedIdsFrom(name) {
@@ -372,48 +360,21 @@ async function saveEditModal() {
   await refreshState(true);
 }
 
-async function saveRenameModal() {
-  const name = String(els.renameInput.value || "").trim();
-  if (!renamingProfileId) {
-    showToast("No account selected.", "error");
-    return;
-  }
-  if (!name) {
-    showToast("Enter an account name.", "error");
-    return;
-  }
 
-  els.renameSaveBtn.disabled = true;
-  try {
-    await apiFetch("/api/profile/rename", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: renamingProfileId, name })
-    });
-
-    closeModal(els.renameModal);
-    renamingProfileId = "";
-    showToast("Account renamed.", "success");
-    await refreshState(true);
-  } catch (error) {
-    showToast(error.message || "Could not rename account.", "error");
-  } finally {
-    els.renameSaveBtn.disabled = false;
-  }
-}
-
-function openBulkRescheduleModal() {
+async function bulkReschedule() {
   if (!selectedPostIds.size) return;
-  els.bulkRescheduleInput.value = "15";
+  if (!els.bulkRescheduleModal || !els.bulkMinuteOffsetInput) {
+    showToast("Bulk reschedule modal is missing from the page.", "error");
+    return;
+  }
+  els.bulkMinuteOffsetInput.value = "15";
   openModal(els.bulkRescheduleModal);
-  setTimeout(() => {
-    els.bulkRescheduleInput.focus();
-    els.bulkRescheduleInput.select();
-  }, 0);
+  setTimeout(() => els.bulkMinuteOffsetInput.focus(), 0);
 }
 
 async function saveBulkRescheduleModal() {
-  const minuteOffset = Number(els.bulkRescheduleInput.value);
+  const raw = String(els.bulkMinuteOffsetInput?.value || "").trim();
+  const minuteOffset = Number(raw);
   if (!selectedPostIds.size) {
     showToast("No posts selected.", "error");
     return;
@@ -434,7 +395,7 @@ async function saveBulkRescheduleModal() {
     showToast(`Rescheduled ${data.changed} posts.`, "success");
     await refreshState(true);
   } catch (error) {
-    showToast(error.message || "Could not bulk reschedule posts.", "error");
+    showToast(error.message || "Bulk reschedule failed.", "error");
   } finally {
     els.bulkRescheduleSaveBtn.disabled = false;
   }
@@ -611,42 +572,34 @@ async function schedulePost(event) {
     return;
   }
 
+  const fd = new FormData();
+  fd.append("file", els.fileInput.files[0]);
+  const upload = await apiFetch("/api/upload", { method: "POST", body: fd });
+
   const when = new Date(els.timeInput.value).getTime();
   if (!Number.isFinite(when)) {
     showToast("Pick a valid time.", "error");
     return;
   }
 
-  els.scheduleSubmitBtn.disabled = true;
+  await apiFetch("/api/post", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      caption: els.captionInput.value,
+      imagePath: upload.path,
+      imageUrl: upload.url,
+      scheduledAt: when,
+      profileIds: selectedProfiles
+    })
+  });
 
-  try {
-    const fd = new FormData();
-    fd.append("file", els.fileInput.files[0]);
-    const upload = await apiFetch("/api/upload", { method: "POST", body: fd });
-
-    await apiFetch("/api/post", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        caption: els.captionInput.value,
-        imagePath: upload.path,
-        imageUrl: upload.url,
-        scheduledAt: when,
-        profileIds: selectedProfiles
-      })
-    });
-
-    showToast("Post scheduled.", "success");
-    els.postForm.reset();
-    els.timeInput.value = defaultDateTimeLocal();
-    selectedImage = null;
-    renderPreview();
-    await refreshState(true);
-  } catch (error) {
-    showToast(error.message || "Could not schedule post.", "error");
-  } finally {
-    els.scheduleSubmitBtn.disabled = false;
-  }
+  showToast("Post scheduled.", "success");
+  els.postForm.reset();
+  els.timeInput.value = defaultDateTimeLocal();
+  selectedImage = null;
+  renderPreview();
+  await refreshState();
 }
 
 els.addAccountBtn.addEventListener("click", addAccount);
@@ -658,13 +611,11 @@ els.fileInput.addEventListener("change", () => {
   renderPreview();
 });
 els.captionInput.addEventListener("input", renderPreview);
-els.bulkRescheduleBtn.addEventListener("click", openBulkRescheduleModal);
-els.bulkRescheduleSaveBtn.addEventListener("click", saveBulkRescheduleModal);
+els.bulkRescheduleBtn.addEventListener("click", bulkReschedule);
 els.clearSelectionBtn.addEventListener("click", clearSelection);
 els.importOpenBtn.addEventListener("click", () => openModal(els.importModal));
 els.importRunBtn.addEventListener("click", importSchedule);
 els.editSaveBtn.addEventListener("click", saveEditModal);
-els.renameSaveBtn.addEventListener("click", saveRenameModal);
 els.importCsvText.addEventListener("input", () => {
   try {
     const matrix = parseCsv(els.importCsvText.value);
@@ -683,20 +634,6 @@ els.importCsvFile.addEventListener("change", async () => {
   const headers = matrix[0] ? matrix[0].map(x => String(x || "").trim()) : [];
   const rows = matrix.slice(1).map(values => Object.fromEntries(headers.map((header, index) => [header, String(values[index] || "").trim()])));
   summarizeImportRows(rows);
-});
-
-els.renameInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    saveRenameModal();
-  }
-});
-
-els.bulkRescheduleInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    saveBulkRescheduleModal();
-  }
 });
 
 document.body.addEventListener("click", async (event) => {
@@ -743,3 +680,21 @@ updateSelectedCount();
 summarizeImportRows([]);
 refreshState(true).catch(() => {});
 setInterval(() => refreshState(false).catch(() => {}), 10000);
+
+
+if (els.renameInput) {
+  els.renameInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      saveRenameModal();
+    }
+  });
+}
+if (els.bulkMinuteOffsetInput) {
+  els.bulkMinuteOffsetInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      saveBulkRescheduleModal();
+    }
+  });
+}
