@@ -24,6 +24,7 @@
     "productName": "IG Autopost",
     "files": [
       "server.js",
+      "lib/**/*",
       "web/**/*",
       "electron/**/*",
       "package.json"
@@ -36,11 +37,15 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "assets/icon.ico"
